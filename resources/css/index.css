@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "Sauce Tomato";
+    src: url(../fonts/sauce_tomato-webfont.woff2) format(woff2),
+         url(../fonts/sauce_tomato-webfont.woff) format(woff);
+}
+
+body {
+    background-color: rgb(249, 244, 228);
+    font-family: "Sauce Tomato";
+}
+
+.nav-section {
+    background-color: brown;
+    color: GhostWhite;
+    background-color: rgb(113, 136, 106);
+    border: 2px solid rgb(58, 90, 64);
+    border-radius: 15px;
+    font-family: "Sauce Tomato";
+    font-size: 1.2rem;
+    height: 80px;
+}
+
+.nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-section ul {
+    margin-right: 50px;
+}
+
+.logo img {
+    width: 210px;
+    height: 210px;
+    margin-top: 10px;
+}
+
+.nav-button {
+    background-color: rgb(249, 244, 228);
+    display: inline-block;
+    color: rgb(58, 90, 64);
+    text-align: center;
+    font-family: "Sauce Tomato";
+    border: 3px solid rgb(58, 90, 64);
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin-left: 10px;
+}
+
+.nav-button:hover {
+    background-color: rgb(58, 90, 64);
+    color: rgb(249, 244, 228);
+}
+
+/* Main Content */
+
+.banner-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-text {
+    font-family: "Sauce Tomato";
+    background-color: rgb(107, 196, 166);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 600px;
+}
+
+.banner-button {
+    background-color: rgb(249, 244, 228);
+    display: inline-block;
+    color: rgb(58, 90, 64);
+    text-align: center;
+    font-family: "Sauce Tomato";
+    border: 3px solid rgb(58, 90, 64);
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin-left: 10px;
+}
+
+.banner img {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-right: 50px;
+}
+
+.cookie-1 {
+    z-index: 1;
+}
+
+.cookie-2 {
+    z-index: 1;
+    position: relative;
+    top: -250px;
+    margin-bottom: -250px;
+}
+
+.cookie-1 {
+  transition: transform 0.3s ease;
+}
+
+.cookie-1:hover {
+  transform: translateY(-10px);
+}
+
+
+/* Catalog */
+
+.catalog {
+    background-color: rgb(58, 90, 64);
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
