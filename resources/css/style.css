@@ -41,6 +41,11 @@ body {
     justify-content: center;
 }
 
+.logo img {
+    max-height: 80px;
+    width: auto;
+}
+
 .nav-button-list {
     position: absolute;
     right: -40px;
@@ -117,14 +122,6 @@ body {
     justify-content: center;
     align-self: center;
     margin-right: 50px;
-}
-
-.banner-text img {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 250px;
-    right: 20px;
 }
 
 .cookie-1 {
