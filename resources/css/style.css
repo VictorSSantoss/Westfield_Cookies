@@ -19,6 +19,30 @@ body {
     background-color: #e7e0c6;
 }
 
+.thicket-color {
+    color: #3a5a40;
+}
+
+.vanilla-color {
+    color: #e7e0c6;
+}
+
+.meadow-color {
+    color: #70876a;
+}
+
+.amber-color {
+    color: #fe6f1f;
+}
+
+.brooke-color {
+    color: #6bc4a6;
+}
+
+.cloud-color {
+    color: #f9f4e4;
+}
+
 .nav-section {
     background-color: #f9f4e4;
     border: 2px solid #3a5a40;
@@ -83,9 +107,13 @@ body {
     height: 750px;
 }
 
+.spin {
+  animation: spin 70s linear infinite;
+}
+
 .banner-text {
-    width: 500px;
-    height: 280px;
+    width: 600px;
+    height: 300px;
     font-family: "Westroon";
     font-size: 1.3rem;
     background-color: #6bc4a6;
@@ -102,6 +130,15 @@ body {
     font-family: "Westroon";
     font-weight: normal;
     font-style: normal;
+    text-transform: uppercase;
+}
+
+.banner-text h2 {
+    font-family: "Westroon";
+    font-weight: normal;
+    font-style: normal;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .banner-text img {
@@ -122,6 +159,11 @@ body {
     padding: 5px 20px;
     margin-left: 10px;
     font-family: "Westroon";
+}
+
+.banner-button:hover {
+    background-color: rgb(58, 90, 64);
+    color: rgb(249, 244, 228);
 }
 
 .pink-chip-chocolate-2 {
@@ -153,12 +195,6 @@ body {
     animation: floatY 6s ease-in-out infinite;
 }
 
-@keyframes floatY {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-20px); } /* goes up */
-  100% { transform: translateY(0); }     /* back down */
-}
-
 .cookie-1 {
     width: 400px;
     height: 400px;
@@ -181,6 +217,8 @@ body {
     margin-bottom: 100px;
 }
 
+/* Animations */
+
 @keyframes float-1 {
     0%   { transform: translate(0px, 0px); }
     50%  { transform: translate(9px, -9px); }
@@ -193,15 +231,26 @@ body {
     100% { transform: translate(0px, 0px); }
   }
 
+  @keyframes floatY {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); } /* goes up */
+  100% { transform: translateY(0); }     /* back down */
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Catalog */
 
 .catalog {
-    background-color: #f9f4e4;
     background-image: url(../img/pattern\ 3.0_2x\ size.svg);
     background-size: 1300px;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
     height: 700px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -209,7 +258,7 @@ body {
 
 .catalog img {
     position: absolute;
-    top: 300px;
+    top: 250px;
     left: 0;
     width: 100%;
     height: 100%;
