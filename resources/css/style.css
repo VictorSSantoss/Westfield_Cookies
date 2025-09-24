@@ -108,7 +108,7 @@ body {
     color: rgb(249, 244, 228);
 }
 
-/* ------- Img Circle ------- */
+/* ------- SVG Circle ------- */
 .svg-circle {
     background-color: #fe6f1f;
     border-radius: 100%;
@@ -130,7 +130,6 @@ body {
 }
 
 /* ------- Banner ------- */
-
 .banner {
     display: flex;
     justify-content: center;
