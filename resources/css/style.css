@@ -45,14 +45,16 @@ body {
     color: #f9f4e4;
 }
 
+/* ------- Navigation Bar ------- */
 .nav-section {
+    height: 80px;
     background-color: #f9f4e4;
     border: 2px solid #3a5a40;
-    border-radius: 15px;
+    border-radius: 26px;
     font-size: 1.2rem;
-    top: 5px;
-    height: 80px;
     display: flex;
+    top: 8px;
+    margin: 0px 10px;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -107,7 +109,6 @@ body {
 }
 
 /* ------- SVG Circle ------- */
-
 .svg-circle {
     background-color: #fe6f1f;
     border-radius: 100%;
@@ -128,8 +129,7 @@ body {
   to   { transform: rotate(360deg); }
 }
 
-/* Main Content */
-
+/* ------- Banner ------- */
 .banner {
     display: flex;
     justify-content: center;
@@ -164,10 +164,10 @@ body {
 }
 
 .silver-plate {
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
     position: absolute;
-    top: 50px;
+    top: 70px;
     z-index: 1;
 }
 
