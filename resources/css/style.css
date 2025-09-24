@@ -45,6 +45,7 @@ body {
     color: #f9f4e4;
 }
 
+/* ------- Navigation Bar ------- */
 .nav-section {
     background-color: #f9f4e4;
     border: 2px solid #3a5a40;
@@ -106,7 +107,27 @@ body {
     color: rgb(249, 244, 228);
 }
 
-/* Main Content */
+/* ------- Img Circle ------- */
+.svg-circle {
+    background-color: #fe6f1f;
+    border-radius: 100%;
+    position: sticky;
+    top: 1070px;
+    margin-left: 16px;
+    margin-right: 5px;
+}
+
+.spinning-text {
+  animation: spin 20s linear infinite;
+  transform-origin: 150px 150px; /* center of the SVG */
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ------- Banner ------- */
 
 .banner {
     display: flex;
