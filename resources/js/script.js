@@ -33,3 +33,61 @@ function showText() {
 
 document.addEventListener("DOMContentLoaded", showText);
 
+// SVG Image Anaimation
+document.addEventListener("DOMContentLoaded", () => {
+    const svgCircle = document.querySelector(".svg-circle");
+
+    // hide it initially
+    svgCircle.style.opacity = "0";
+    svgCircle.style.transition = "opacity 1s ease-in-out";
+
+    // trigger on first scroll
+    function revealOnScroll() {
+        svgCircle.style.opacity = "1";
+        // remove listener so it only runs once
+        window.removeEventListener("scroll", revealOnScroll);
+    }
+
+  window.addEventListener("scroll", revealOnScroll);
+});
+
+// Cookie Images Animation
+/*
+document.addEventListener("DOMContentLoaded", () => {
+  const cookies = document.querySelector(".cookie");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Delay before showing
+          setTimeout(() => {
+            cookies.classList.add("visible");
+          }, 500); // 500ms delay
+          observer.unobserve(entry.target); // only once
+        }
+      });
+    },
+    { threshold: 0.2 } // when 20% is visible
+  );
+
+  observer.observe(cookies);
+});
+*/
+
+// Cookie Images Animation - Alternative Scroll Method
+document.addEventListener("DOMContentLoaded", () => {
+  const cookies = document.querySelectorAll(".cookie");
+
+  function revealCookies() {
+    cookies.forEach((cookie, index) => {
+      setTimeout(() => {
+        cookies.classList.add("visible");
+      }, index * 600); // 500ms delay between each
+    });
+    observer.unobserve(entry.target);
+  }
+
+  observer.observe(circle);
+});
+

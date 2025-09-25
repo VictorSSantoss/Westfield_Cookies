@@ -45,7 +45,7 @@ body {
     color: #f9f4e4;
 }
 
-/* ------- Navigation Bar ------- */
+/* --------------- Navigation Bar --------------- */
 .nav-section {
     height: 80px;
     background-color: #f9f4e4;
@@ -108,20 +108,28 @@ body {
     color: rgb(249, 244, 228);
 }
 
-/* ------- SVG Circle ------- */
+/* ---------------------- SVG Circle --------------- */
 .svg-circle {
     background-color: #fe6f1f;
     border-radius: 100%;
     position: fixed;
-    top: 1075px;
+    top: 600px;
     left: -4px;
     margin-left: 16px;
     margin-right: 5px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .spinning-text {
-  animation: spin 20s linear infinite;
-  transform-origin: 150px 150px; /* center of the SVG */
+    animation: spin 20s linear infinite;
+    transform-origin: 150px 150px; /* center of the SVG */
+}
+
+.svg-circle.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes spin {
@@ -129,7 +137,7 @@ body {
   to   { transform: rotate(360deg); }
 }
 
-/* ------- Banner ------- */
+/* --------------- Banner --------------- */
 .banner {
     display: flex;
     justify-content: center;
@@ -171,10 +179,10 @@ body {
     z-index: 1;
 }
 
-.cookie-1 {
+#cookie-1 {
     width: 230px;
     height: 230px;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     top: 340px;
     left: 230px;
@@ -182,18 +190,44 @@ body {
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
 }
 
-.cookie-2 {
+#cookie-2 {
     width: 230px;
     height: 230px;
     top: 320px;
     left: 350px;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     /*animation: float-2 15s ease-in-out infinite;*/
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
     margin-bottom: 100px;
 }
 
+#cookie-3 {
+    width: 230px;
+    height: 230px;
+    top: 260px;
+    left: 200px;
+    z-index: 1;
+    position: absolute;
+    /*animation: float-2 15s ease-in-out infinite;*/
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    margin-bottom: 100px;
+}
+
+/* --------------- Cookies Animation --------------- */
+.cookies {
+  opacity: 0;
+  transform: scale(0.8) translateY(30px); /* smaller + pushed down */
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1); 
+  /* cubic-bezier gives a nice "ease-out" */
+}
+
+.cookies.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0); /* normal size + back to place */
+}
+
+/* --------------- Banner Text --------------- */
 .banner-text {
     width: 600px;
     height: 300px;
@@ -278,7 +312,7 @@ body {
     animation: floatY 6s ease-in-out infinite;
 }
 
-/* Animations */
+/* --------------- Animations --------------- */
 
 @keyframes float-1 {
     0%   { transform: translate(0px, 0px); }
@@ -303,7 +337,7 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Catalog */
+/* --------------- Catalog --------------- */
 
 .catalog {
     background-image: url(../img/pattern\ 3.0_2x\ size.svg);
