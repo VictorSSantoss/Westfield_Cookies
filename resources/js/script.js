@@ -47,3 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", showOnScroll);
 });
 
+// Catalog background cookies
+/*
+document.addEventListener("DOMContentLoaded", () => {
+  const cookies = document.querySelectorAll(".cookie-catalog");
+  const nav = document.querySelector(".catalog-all-items");
+
+  const navHeight = nav.offsetHeight;
+  const navWidth = nav.offsetWidth;
+
+  cookies.forEach(cookie => {
+    const randomTop = Math.random() * (navHeight - 40); // 40 = cookie size
+    const randomLeft = Math.random() * (navWidth - 40);
+
+    cookie.style.top = `${randomTop}px`;
+    cookie.style.left = `${randomLeft}px`;
+  });
+});
