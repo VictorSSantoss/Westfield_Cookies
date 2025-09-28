@@ -219,20 +219,20 @@ body {
 
 /* Hide cookies at first */
 .cookie {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 /* Delay each one */
 #cookie-1 {
-  animation-delay: 0.4s;
+    animation-delay: 0.4s;
 }
 #cookie-2 {
-  animation-delay: 1.1s;
+    animation-delay: 1.1s;
 }
 #cookie-3 {
-  animation-delay: 1.8s;
+    animation-delay: 1.8s;
 }
 
 /* --------------- Banner Text --------------- */
@@ -369,6 +369,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: -150px;
 }
 
 .item-box {
@@ -423,7 +424,7 @@ body {
     z-index: -1;
 }
 
-/*  */
+/* --------------- Second Catalog --------------- */
 
 .catalog-all-items {
     height: 700px;
@@ -431,85 +432,5 @@ body {
     background-image: url("../img/pattern-1.2-sem-fundo-2000px-2000px.svg");
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
-/*
-.catalog-all-items {
-    height: 700px;
-    width: 100%;
-
-    background-image: 
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg"),
-        url("../img/logo-6.6.svg");
-
-    background-repeat:  no-repeat, no-repeat, no-repeat, no-repeat,
-                        no-repeat, no-repeat, no-repeat, no-repeat,
-                        no-repeat, no-repeat, no-repeat, no-repeat,
-                        no-repeat, no-repeat, no-repeat, no-repeat;
-
-    background-size: 
-        90px 90px,
-        70px 70px,
-        50px 50px,
-        150px 150px,
-        55px 55px,
-        75px 75px,
-        120px 120px,
-        140px 140px,
-        150px 150px,
-        60px 60px,
-        80px 80px,
-        65px 65px,
-        100px 100px,
-        90px 90px,
-        110px 110px,
-        50px 50px;
-
-    background-position: 
-        5% 10%,
-        50% 5%,
-        95% 10%,
-        10% 35%,
-        50% 30%,
-        90% 35%,
-        20% 55%,
-        80% 55%,
-        50% 50%,
-        15% 75%,
-        50% 70%,
-        85% 75%,
-        25% 90%,
-        50% 95%,
-        75% 90%,
-        50% 85%;
-}
-
-
-/*
-.catalog-all-items {
-    height: 700px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.cookie-catalog {
-  position: absolute;
-  width: 160px;
-  height: auto;
-}
