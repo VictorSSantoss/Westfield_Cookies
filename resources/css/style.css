@@ -54,7 +54,7 @@ body {
     font-size: 1.2rem;
     display: flex;
     top: 8px;
-    margin: 0px 10px;
+    margin: 0px 21px;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -427,10 +427,12 @@ body {
 /* --------------- Second Catalog --------------- */
 
 .catalog-all-items {
-    height: 700px;
-    width: 100%;
-    background-image: url("../img/pattern-1.2-sem-fundo-2000px-2000px.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: relative;
+  z-index: -1;
+  height: 700px;
+  width: 100%;
+  background-image: url("../img/pattern-1.2-sem-fundo-2000px-2000px.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
