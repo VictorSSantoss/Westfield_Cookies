@@ -46,3 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", showOnScroll);
 });
+
+// Cookie on hover swap
+const cookies = document.querySelectorAll(".cookie-img-swap");
+
+cookies.forEach(cookie => {
+  cookie.addEventListener("mouseenter", () => {
+    cookie.dataset.original = cookie.src;
+    cookie.src = cookie.dataset.hover;
+  });
+  cookie.addEventListener("mouseleave", () => {
+    cookie.src = cookie.dataset.original;
+  });
+});
