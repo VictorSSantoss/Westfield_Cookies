@@ -48,14 +48,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Cookie on hover swap
-const cookies = document.querySelectorAll(".cookie-img-swap");
+document.addEventListener("DOMContentLoaded", () => {
+  const catalogItems = document.querySelectorAll(".catalog-item");
 
-cookies.forEach(cookie => {
-  cookie.addEventListener("mouseenter", () => {
-    cookie.dataset.original = cookie.src;
-    cookie.src = cookie.dataset.hover;
-  });
-  cookie.addEventListener("mouseleave", () => {
-    cookie.src = cookie.dataset.original;
+  catalogItems.forEach(item => {
+    const cookie = item.querySelector(".cookie-img-swap"); // the image inside
+
+    if (!cookie) return; // skip if no cookie image
+
+    const originalSrc = cookie.getAttribute("src");
+    const hoverSrc = cookie.getAttribute("data-hover");
+
+    // Hover on the whole catalog-item
+    item.addEventListener("mouseenter", () => {
+      cookie.setAttribute("src", hoverSrc);
+    });
+
+    item.addEventListener("mouseleave", () => {
+      cookie.setAttribute("src", originalSrc);
+    });
   });
 });
+
+
+
