@@ -381,7 +381,7 @@ body {
   width: 800px;
   height: 500px;
   background-color: #6bc4a6;
-  border: 4px solid rgb(58, 90, 64);
+  border: 4px solid #70876a;
   border-radius: 40px;
   display: flex;
   position: relative;
@@ -457,6 +457,7 @@ body {
     height: 500px;
     border-radius: 25px;
     background-color: #f9f4e4;
+    background-image: url("../img/pattern-2.1.svg");
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -464,8 +465,8 @@ body {
     padding: 20px 15px;
     text-align: center;
     overflow: hidden;
-    border: 4px solid #6bc4a6; /* Blue */
-    box-shadow: 0 0 0 4px #fe6f1f;
+    border: 4px solid #3a5a40; /* Blue */
+    box-shadow: 0 0 0 4px #6bc4a6;
     margin-top: 220px;
     cursor: pointer;
     z-index: 1;
@@ -484,14 +485,20 @@ body {
     z-index: -1;
 }
 
-.item-title {
+.item-logo {
     position: relative;
+    width: 65px;
+    height: auto;
+    top: -15px;
+}
+
+.item-title {
+    position: absolute;
     font-family: "Fendesert-Script-Stamp";
     font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
     font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-size: 3.2rem;
+    font-size: 5rem;
     color: #f9f4e4;
-    top: 50px;
 }
 
 .cookie-img {
@@ -503,10 +510,10 @@ body {
 }
 
 .cookie-img-swap {
-    position: relative;
+    position: absolute;
     width: 230px;
     height: auto;
-    top: 100px;
+    top: 200px;
     transition: transform 0.3s ease;
     z-index: 10;
 }
@@ -539,3 +546,32 @@ body {
   animation-delay: 2s;
 }
 
+/* ---------- */
+.catalog-item {
+  position: relative;
+  overflow: hidden;
+  background-image: url("../img/pattern-2.1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.catalog-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/pattern-3.0-2000px-2000px.svg"); /* your hover bg */
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2;
+
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: -2; /* sits below cookie/logo/etc. */
+}
+
+.catalog-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+*/
