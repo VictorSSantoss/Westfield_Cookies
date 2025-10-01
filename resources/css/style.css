@@ -1,17 +1,21 @@
-@font-face {
-    font-family: "neato-serif-regular";
-    src: url(../fonts/neato-serif-regular.woff2) format(woff2),
-         url(../fonts/neato-serif-regular.woff) format(woff);
+@font-face {    
+    font-family: "Westroon";
+    src: url(../fonts/01_WESTROON/Westroon.woff2) format(woff2),
+         url(../fonts/01_WESTROON/Westroon.otf) format(woff);
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {    
-    font-family: "Westroon";
-    src: url(../fonts/Westroon.woff2) format(woff2),
-         url(../fonts/Westroon.woff) format(woff);
-    font-weight: normal;
-    font-style: normal;
+@font-face {
+    font-family: "neato-serif-regular";
+    src: url(../fonts/04_NEATO-SERIF/neato-serif-regular.woff2) format(woff2),
+         url(../fonts/04_NEATO-SERIF/neato-serif-regular.otf) format(woff);
+}
+
+@font-face {
+    font-family: "Fendesert-Script-Stamp";
+    src: url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.woff2) format(woff2),
+         url(../fonts//03_FENDESERT/Fendesert-Script-Stamp.otf) format(woff);
 }
 
 body {
@@ -436,7 +440,7 @@ body {
 
     position: absolute; /* It fixes the on hover for .cookie-img-swap */
     z-index: -1;
-    height: 700px;
+    height: auto;
     width: 100%;
     background-color: #f9f4e4;
 
@@ -445,7 +449,7 @@ body {
     background-repeat: no-repeat;
 }
 
-/* --------------- catalog-item --------------- */
+/* --------------- catalog-items     --------------- */
 
 .catalog-item {
     position: relative;
@@ -462,9 +466,14 @@ body {
     overflow: hidden;
     border: 4px solid #6bc4a6; /* Blue */
     box-shadow: 0 0 0 4px #fe6f1f;
-    margin-top: 150px;
+    margin-top: 220px;
     cursor: pointer;
     z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.catalog-item:hover {
+    transform: scale(1.05);
 }
 
 .background-decor {
@@ -477,10 +486,10 @@ body {
 
 .item-title {
     position: relative;
-    font-family: "Westroon";
+    font-family: "Fendesert-Script-Stamp";
     font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
     font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-size: 2rem;
+    font-size: 3.2rem;
     color: #f9f4e4;
     top: 50px;
 }
@@ -492,7 +501,6 @@ body {
     bottom: 0;
     z-index: 2;
 }
-/* ------------------------ */
 
 .cookie-img-swap {
     position: relative;
@@ -502,13 +510,6 @@ body {
     transition: transform 0.3s ease;
     z-index: 10;
 }
-
-.cookie-img-swap:hover {
-    transform: scale(1.05);
-}
-
-
-/* ----------------------- */
 
 .cookie-decorations {
     display: flex;
