@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1920">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #e8dfc2;
+      }
+
+      .cls-3 {
+        fill: #6ac2a4;
+      }
+
+      .cls-4 {
+        fill: #fc6f1f;
+      }
+
+      .cls-5 {
+        fill: url(#Novo_padrão);
+      }
+    </style>
+    <pattern id="Novo_padrão" data-name="Novo padrão" x="0" y="0" width="291.36" height="291.36" patternTransform="translate(-2028.2 931.09) scale(.27)" patternUnits="userSpaceOnUse" viewBox="0 0 291.36 291.36">
+      <g>
+        <rect class="cls-1" width="291.36" height="291.36"/>
+        <rect class="cls-3" x="0" y="0" width="145.68" height="145.68"/>
+        <rect class="cls-4" x="145.68" y="145.68" width="145.68" height="145.68"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect class="cls-2" x="-48.35" y="-44.08" width="1176.69" height="2008.15"/>
+  <rect class="cls-5" x="-48.35" y="-44.08" width="1176.69" height="2008.15"/>
+</svg>
