@@ -445,7 +445,7 @@ body {
     position: absolute; /* It fixes the on hover for .cookie-img-swap */
     z-index: -1;
     height: auto;
-    width: auto;
+    width: 100%;
     background-color: #f9f4e4;
     background-image: url("../img/pattern-5.2-sem-fundo-2000px-2000px.svg");
     /*background-image: url("../img/pattern-5.1.svg");*/
