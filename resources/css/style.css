@@ -578,3 +578,33 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* --------------- Ifood banner --------------- */
+.ifood-section {
+  width: 100%;
+  height: 600px;
+  background-color: #f9f4e4;
+  background-image: url("../img/");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* for child absolute elements */
+  z-index: 1;
+  margin-top: 100px;
+}
+
+.ifood-banner {
+  width: 600px;
+  height: 500px;
+  background-color: #fe6f1f;
+  border: 4px solid #3a5a40;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* stays inside section now */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
