@@ -70,6 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Testing data-hover for dynamic backgrounds
+const ifood = document.querySelector(".ifood-section");
+if (ifood && ifood.dataset.hover) {
+  ifood.style.setProperty("--hover-bg", `url(${ifood.dataset.hover})`);
+}
+
+
 
 
 
