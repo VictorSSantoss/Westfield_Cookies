@@ -21,8 +21,8 @@
 body {
     font-family: "Westroon";
     background-image: url("../img/pattern-5.5-sem-fundo-4000px-4000px.svg");
-    background-size:contain
-    background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: repeat;
     margin: 0;
     padding: 0;
 }
@@ -244,6 +244,7 @@ body {
 }
 
 /* --------------- Banner Text --------------- */
+/*
 .banner-text {
     width: 600px;
     height: 300px;
@@ -261,8 +262,8 @@ body {
 
 .banner-text h1 {
     font-family: "Westroon";
-    font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
+    font-weight: normal; Override browser default bold styling (User Agent Stylesheet).
+    font-style: normal; Override browser default bold styling (User Agent Stylesheet). 
     text-transform: uppercase;
 }
 
@@ -280,23 +281,6 @@ body {
     position: absolute;
     top: -50px;
     right: -30px;
-}
-
-.button-1 {
-    background-color: rgb(249, 244, 228);
-    display: inline-block;
-    color: rgb(58, 90, 64);
-    text-align: center;
-    border: 3px solid rgb(58, 90, 64);
-    border-radius: 15px;
-    padding: 5px 20px;
-    margin-left: 10px;
-    font-family: "Westroon";
-}
-
-.button-1:hover {
-    background-color: rgb(58, 90, 64);
-    color: rgb(249, 244, 228);
 }
 
 .pink-chip-chocolate-2 {
@@ -327,6 +311,7 @@ body {
     position: relative;
     animation: floatY 6s ease-in-out infinite;
 }
+*/
 
 /* --------------- Animations --------------- */
 
@@ -365,9 +350,26 @@ body {
   }
 }
 
-/* --------------- Catalog --------------- */
+/* --------------- Buttons --------------- */
+.button-1 {
+    background-color: rgb(249, 244, 228);
+    display: inline-block;
+    color: rgb(58, 90, 64);
+    text-align: center;
+    border: 3px solid rgb(58, 90, 64);
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin-left: 10px;
+    font-family: "Westroon";
+}
 
-.catalog {
+.button-1:hover {
+    background-color: rgb(58, 90, 64);
+    color: rgb(249, 244, 228);
+}
+
+/* --------------- Catalog --------------- */
+.catalog-section {
     background-image: url("../img/pattern-3.0-2000px-2000px.svg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -377,28 +379,35 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: -150px;
-    z-index: 1;
 }
 
-.item-box {
-  width: 900px;
-  height: 600px;
+.catalog-content {
   background-color: #6bc4a6;
   border: 4px solid #3a5a40;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.item-img {
+  display: flex;
+  position: relative;
+  width: 500px;
+  height: 600px;
+
   border-radius: 40px;
   display: flex;
   position: relative;
   justify-content: space-between; /* image left, text right */
   align-items: center; /* vertical centering */
-  z-index: 5;
 }
 
 .oreo-gif {
     width: 420px;
     height: auto;
     margin-left: 0;   /* sticks to left side */
-    z-index: 10;
 }
 
 .item-description {
@@ -441,20 +450,16 @@ body {
     flex-wrap: wrap;
     gap: 22px;
     padding: 40px;
-
-    position: ; /* It fixes the on hover for .cookie-img-swap */
-    z-index: -1;
     height: auto;
     width: 100%;
-    background-color: #f9f4e4;
+    /*
     background-image: url("../img/pattern-5.5-sem-fundo-4000px-4000px.svg");
-    /*background-image: url("../img/pattern-5.1.svg");*/
     background-size: cover;
     background-repeat: no-repeat;
+    */
 }
 
 /* --------------- catalog-items     --------------- */
-
 .catalog-item {
     position: relative;
     width: 320px;
@@ -592,12 +597,12 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* 🔥 Background fill animation */
+/* ---------------  Background fill animation --------------- */
 .ifood-section::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #6bc4a6;
+  background-color: #70876a;
   background-size: cover;
   background-repeat: no-repeat;
   transform: scaleX(0);
@@ -610,7 +615,19 @@ body {
   transform: scaleX(1);
 }
 
-/* Layout: text left, image right */
+/* --------------- Layout: text left, image right --------------- */
+.ifood-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  position: relative;
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 50px 20px;
+}
+
 .ifood-content {
   display: flex;
   align-items: center;
@@ -633,6 +650,8 @@ body {
 .ifood-text {
   flex: 1;
   color: #f9f4e4;
+  font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
+  font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
 }
 
 .ifood-text h2 {
@@ -662,7 +681,7 @@ body {
   background-color: #c00022;
 }
 
-/* Image on the right */
+/* --------------- Image on the right --------------- */
 .ifood-image img {
   width: 340px;
   max-width: 100%;
@@ -676,7 +695,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Responsive: stack on mobile */
+/* --------------- Responsive: stack on mobile --------------- */
 @media (max-width: 768px) {
   .ifood-content {
     flex-direction: column;
