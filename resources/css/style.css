@@ -589,6 +589,7 @@ body {
     height: 400px;
     position: absolute;
     background-color: #3a5a40;
+    border: #70876a 4px solid;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 0rem 0rem 0rem 1rem;
@@ -597,35 +598,18 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* ---------------  Background fill animation --------------- */
-.ifood-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: #70876a;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.8s ease;
-  z-index: -1;
-}
-
-.ifood-section:hover::after {
-  transform: scaleX(1);
-}
-
 /* --------------- Layout: text left, image right --------------- */
 .ifood-section {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 400px;
+  top: 70px;
   position: relative;
-  padding: 2rem;
   border-radius: 1rem;
-  overflow: hidden;
   margin: 50px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .ifood-content {
@@ -641,15 +625,15 @@ body {
 
 .aguia-adesivo {
   position: absolute;
+  top: -70px;
+  left: -90px;
   width: 140px;
   height: auto;
-  top: -20px;
-  z-index: -1;
 }
 
 .ifood-text {
   flex: 1;
-  color: #f9f4e4;
+  color: #000000;
   font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
   font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
 }
@@ -683,8 +667,7 @@ body {
 
 /* --------------- Image on the right --------------- */
 .ifood-image img {
-  width: 340px;
-  max-width: 100%;
+  width: 400px;
   height: 400px;
   object-fit: cover;
   border-radius: 1rem;
