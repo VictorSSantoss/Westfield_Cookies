@@ -1,0 +1,153 @@
+/*--------------- ABOUT BANNER WRAPPER ---------------*/
+.about-banner {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+}
+
+/* TOP PART — CREAM BACKGROUND */
+.about-banner__top {
+  background-color: #F5F1E8; /* light cream */
+  padding: 40px 20px;
+}
+
+.about-banner__top h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3A5A40; /* your green color */
+  margin: 0;
+}
+
+/* MAIN BLOCK — GREEN BACKGROUND */
+.about-banner__main {
+  background-color: #3A5A40; 
+  padding: 60px 25px;
+  color: #F5F1E8; /* cream text */
+}
+
+/* TEXT STYLE */
+.about-banner__main p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+/* --------------- Rainbow Divider Section --------------- */
+.rainbow-divider {
+  position: relative;
+  width: 100%;
+  height: 350px; /* adjust size if needed */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Wrapper to create the depth effect */
+.rainbow-wrapper {
+  width: 100%;
+  max-width: 900px;    /* Keeps it centered, not too big */
+  height: 100%;
+  position: relative;
+  perspective: 1200px; /* Depth */
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* The vertical rainbow SVG */
+.rainbox-vertical__svg {
+  width: 40%;
+  height: 200%;
+  position: absolute;
+  transform-origin: top;
+  transform: rotateX(68deg) translateY(-120px); /* tilt backward */
+  opacity: 0;
+  animation: rainbowDrop 1.4s ease-out forwards;
+}
+
+/* Animation: drop, tilt forward, appear in front */
+@keyframes rainbowDrop {
+  0% {
+    opacity: 0;
+    transform: rotateX(68deg) translateY(-220px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(68deg) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Prevents pointer interference */
+.rainbox-vertical__svg path {
+  pointer-events: none;
+}
+
+/* ALL LINES DRAW SEQUENTIALLY */
+.stroke-anim {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: rainbowDraw 1.1s ease-out forwards;
+  will-change: stroke-dashoffset;
+}
+
+/* PAIR BLACK + RAINBOW TOGETHER */
+
+/* Pair 1 */
+.black-stroke:nth-of-type(1),
+.rainbow-stroke:nth-of-type(10) {
+  animation-delay: 0s;
+}
+
+/* Pair 2 */
+.black-stroke:nth-of-type(2),
+.rainbow-stroke:nth-of-type(11) {
+  animation-delay: .06s;
+}
+
+/* Pair 3 */
+.black-stroke:nth-of-type(3),
+.rainbow-stroke:nth-of-type(12) {
+  animation-delay: .12s;
+}
+
+/* Pair 4 */
+.black-stroke:nth-of-type(4),
+.rainbow-stroke:nth-of-type(13) {
+  animation-delay: .18s;
+}
+
+/* Pair 5 */
+.black-stroke:nth-of-type(5),
+.rainbow-stroke:nth-of-type(14) {
+  animation-delay: .24s;
+}
+
+/* Pair 6 */
+.black-stroke:nth-of-type(6),
+.rainbow-stroke:nth-of-type(15) {
+  animation-delay: .30s;
+}
+
+/* Pair 7 */
+.black-stroke:nth-of-type(7),
+.rainbow-stroke:nth-of-type(16) {
+  animation-delay: .36s;
+}
+
+/* Pair 8 */
+.black-stroke:nth-of-type(8),
+.rainbow-stroke:nth-of-type(17) {
+  animation-delay: .42s;
+}
+
+/* Pair 9 */
+.black-stroke:nth-of-type(9),
+.rainbow-stroke:nth-of-type(18) {
+  animation-delay: .48s;
+}

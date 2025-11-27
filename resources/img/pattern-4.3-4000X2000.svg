@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 4000 2000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #f37024;
+      }
+
+      .cls-3 {
+        fill: #e8dfc2;
+      }
+
+      .cls-4 {
+        fill: #6cc2a4;
+      }
+
+      .cls-5 {
+        fill: url(#Novo_padrão);
+      }
+    </style>
+    <pattern id="Novo_padrão" data-name="Novo padrão" x="0" y="0" width="291.4" height="291.4" patternTransform="translate(4655.4 -3484.8) scale(.7)" patternUnits="userSpaceOnUse" viewBox="0 0 291.4 291.4">
+      <g>
+        <rect class="cls-1" width="291.4" height="291.4"/>
+        <rect class="cls-4" x="0" y="0" width="145.7" height="145.7"/>
+        <rect class="cls-2" x="145.7" y="145.7" width="145.7" height="145.7"/>
+      </g>
+    </pattern>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="Layer_1">
+      <rect class="cls-3" x=".5" y="-4" width="4000" height="2008.2"/>
+      <rect class="cls-5" x=".5" y="-4" width="4000" height="2008.2"/>
+    </g>
+  </g>
+</svg>
