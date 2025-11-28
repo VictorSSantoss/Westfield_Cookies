@@ -2,9 +2,9 @@ const track = document.getElementById("tickerTrack");
 
 const phrases = [
   `Peça Já no iFood!`,
-  `<img src="../resources/img/logo-2.5.svg" class="ticker-icon" alt="Eagle logo">`,
+  `<img src="/resources/img/logo-2.5.svg" class="ticker-icon" alt="Eagle logo">`,
   `Quero o Meu Cookie!`,
-  `<img src="../resources/img/logo-2.5.svg" class="ticker-icon" alt="Ealgle Logo">`
+  `<img src="/resources/img/logo-2.5.svg" class="ticker-icon" alt="Ealgle Logo">`
 ];
 
 function fillTicker() {
@@ -148,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500);
 });
 
-// Rainbow Vertical 
 // Rainbow Stroke Animation on Scroll (sequential disappear)
 document.addEventListener("DOMContentLoaded", () => {
 

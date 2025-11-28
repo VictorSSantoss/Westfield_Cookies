@@ -10,18 +10,24 @@
     font-family: "neato-serif-regular";
     src: url(../fonts/04_NEATO-SERIF/neato-serif-regular.woff2) format(woff2),
          url(../fonts/04_NEATO-SERIF/neato-serif-regular.otf) format(woff);
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
     font-family: "Fendesert-Sans-Rough";
     src: url(../fonts/03_FENDESERT/Fendesert-Sans-Rough.woff2) format(woff2),
          url(../fonts/03_FENDESERT/Fendesert-Sans-Rough.otf) format(woff);
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
     font-family: "Fendesert-Script-Stamp";
     src: url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.woff2) format(woff2),
          url(../fonts//03_FENDESERT/Fendesert-Script-Stamp.otf) format(woff);
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -277,7 +283,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 700px;
-    z-index: -1;
 }
 
 .logo-banner {
@@ -303,13 +308,14 @@ body {
     width: 800px;
     height: 600px;
     justify-content: center;
+    z-index: 10;
 }
 
-.silver-plate {
-    width: 700px;
-    height: 700px;
+.plate {
+    width: 900px;
+    height: 500px;
     position: absolute;
-    top: 135px;
+    top: 170px;
     z-index: 1;
 }
 
@@ -424,7 +430,8 @@ body {
     color: rgb(249, 244, 228);
 }
 
-/* --------------- Rainbow Sides --------------- */
+/* --------------- Rainbow Sides and Pattern Deco --------------- */
+
 
 /* Initial draw animation (runs once on load) */
 .stroke-anim {
@@ -468,11 +475,12 @@ body {
 
 /* --------------- Pattern Decoration --------------- */
 .pattern-decor {
+    position: absolute;
     display: block;
-    background-image: url("../img/pattern-4.3-4000X2000.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 54px;
+    background-image: url("../img/pattern-decor-1.webp");
+    background-size: contain;
+    background-repeat: repeat;
+    height: 55px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -503,19 +511,6 @@ body {
     color: #3a5a40;
     text-align: center;
     margin-top: 0px;
-}
-
-/* --------------- Pattern Decoration --------------- */
-.pattern-decor {
-    display: block;
-    background-image: url("../img/pattern-decor-1.webp");
-    background-size: contain;
-    background-repeat: repeat;
-    height: 51px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* --------------- Flavors Items --------------- */

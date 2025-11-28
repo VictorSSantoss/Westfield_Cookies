@@ -40,12 +40,16 @@
 
   <!-- CENTER: Logo -->
   <div class="logo">
-    <img src="./resources/img/logo-3.1.svg" alt="Westfield Cookies logo">
+    <a href="/index.html" target="_blank">
+      <img src="./resources/img/logo-3.1.svg" alt="Westfield Cookies logo">
+    </a>
   </div>
 
   <!-- RIGHT: Contact button -->
   <div class="nav-button-list">
-    <button class="nav-button">Início</button>
+    <a href="/index.html">
+      <button class="nav-button">Início</button>
+    </a>
   </div>
 
 </nav>
@@ -71,13 +75,32 @@
         </g>
     </svg>
 
-    <!---------------------------- Main Content ---------------------------->
+    <!---------------------------- MAIN CONTENT ---------------------------->
+    <!-- BANNER -->
     <div class="banner">
+      <div class="banner-img">
+        <img class="adesivo" src="./resources/img/adesivo-5.svg" alt="adesivo">
+        <img class="logo-banner" src="resources/img/logotipo-4.9.svg" alt="logotipo">
+        <img class="plate" src="./resources/img/cookie-e-leite.avif" alt="plate">
+        <!---
+        <img id="cookie-1" class="cookie" src="./resources/img/Oreo - Transparent Background.svg" alt="Image of cookie">
+        <img id="cookie-2" class="cookie" src="./resources/img/Classic - Transparent Background.svg" alt="Image of cookie">
+        <img id="cookie-3" class="cookie" src="./resources/img/Classic - Transparent Background.svg" alt="Image of cookie">
+        -->
+      </div>
+    </div>
 
-<div class="rainbox-sides">
+    <!-- BANNER DECORATIONS -->
+    <div class="pattern-wrapper">
 
-    <!-- RIGHT SIDE -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 321 626" fill="none" class="rainbow-sides__right">
+    <!-- BANNER DECORATIONS -->
+    <div class="pattern-decor"></div>
+      
+    <!-- RAINBOW SIDES -->
+    <div class="rainbox-sides">
+
+      <!-- RIGHT SIDE -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 321 626" fill="none" class="rainbow-sides__right">
 
         <!-- BLACK OUTLINES -->
         <path d="M26 0V400C26 510.457 115.543 600 226 600H321"
@@ -113,10 +136,10 @@
               stroke="#3A5A40" stroke-width="48"
               class="rainbow-stroke stroke-anim"></path>
 
-    </svg>
+      </svg>
 
-    <!-- LEFT SIDE -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 321 626" fill="none" class="rainbow-sides__left">
+      <!-- LEFT SIDE -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 321 626" fill="none" class="rainbow-sides__left">
 
         <!-- BLACK OUTLINES -->
         <path d="M26 0V400C26 510.457 115.543 600 226 600H321"
@@ -151,36 +174,13 @@
         <path d="M176 0V400C176 427.614 198.386 450 226 450H321"
               stroke="#3A5A40" stroke-width="48"
               class="rainbow-stroke stroke-anim"></path>
-    </svg>
+        </svg>
+
+    </div>
 
 </div>
 
-        <div class="banner-img">
-            <img class="adesivo" src="./resources/img/adesivo-5.svg" alt="adesivo">
-            <img class="logo-banner" src="resources/img/logotipo-6.svg" alt="logotipo">
-            <img class="silver-plate" src="./resources/img/silver-plate.svg" alt="silver plate">
-            <!--
-            <img class="chocolate-chunk-1" src="./resources/img/chocolate chunk 1.svg" alt="chocolate chunk">
-            <img class="pink-chip-chocolate-2" src="./resources/img/pink chip chocolate 2.svg" alt="pink chip chocolate">
-            <img class="pink-chip-chocolate-3" src="./resources/img/pink chip chocolate 3.svg" alt="pink chip chocolate">
-            -->
-            <img id="cookie-1" class="cookie" src="./resources/img/Oreo - Transparent Background.svg" alt="Image of cookie">
-            <img id="cookie-2" class="cookie" src="./resources/img/Classic - Transparent Background.svg" alt="Image of cookie">
-            <img id="cookie-3" class="cookie" src="./resources/img/Classic - Transparent Background.svg" alt="Image of cookie">
-        </div>
-        <!--
-        <div class="banner-text">
-            <img src="./resources/img/adesivo 5.svg" alt="Sticker image" class="spin">
-            <h1><span class="vanilla-color">Welcome</span> to Westfild Cookies</h1>
-            <h2>Handcrafted cookies made <span id="output" class="vanilla-color"></span></h2>
-            <button class="button-1">Order Now</button>
-        </div>
-        -->
-    </div>
-<!---------------------------- Pattern Decoration ---------------------------->
-    <div class="pattern-decor">
-    </div>
-<!---------------------------- Flavors -------------------------->
+<!---------------------------- FLAVORS -------------------------->
     <div class="flavors">
         <h2 class="flavors-title">Coleção de Sabores</h2>
         <h3>Cookies artesanais pensados nos mínimos detalhes para uma experiência única. Explore nossos sabores exclusivos.</h3>
@@ -275,7 +275,7 @@
                 <img class="aguia-adesivo" src="./resources/img/adesivo-4.svg" alt="ilustracão de águia com chapéu de cowboy">
                 <h2>Peça pelo iFood</h2>
                 <p>Receba suas cookies favoritas quentinhas e crocantes direto em casa!</p>
-                <button class="button-1">Order Now</button>
+                <button class="button-1">Compre Agora</button>
             </div>
 
             <div class="ifood-image">
@@ -455,9 +455,11 @@
 
       <!-- LEFT LINKS -->
       <div class="footer-left">
-        <a href="#" class="footer-link underline-anim">Privacy</a>
+        <a href="#" class="footer-link underline-anim">Privacidade</a>
         <span class="footer-separator">|</span>
-        <a href="#" class="footer-link underline-anim">Terms of Use</a>
+        <a href="#" class="footer-link underline-anim">Termos de Uso</a>
+        <span class="footer-separator">|</span>
+        <a href="/about/index.html" class="footer-link underline-anim">Sobre Nós</a>
       </div>
 
       <!-- CENTER CIRCLE -->
@@ -495,7 +497,7 @@
       <div class="footer-right">
         <a href="https://wa.me/55XXXXXXXXXX" class="footer-icon-link icon-anim">
           <img src="./resources/img/whatsapp-1.svg" alt="WhatsApp">
-          Contact
+          Contato
         </a>
         <span class="footer-separator">|</span>
         <a href="https://instagram.com/" class="footer-icon-link icon-anim">
