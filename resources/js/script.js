@@ -2,9 +2,9 @@ const track = document.getElementById("tickerTrack");
 
 const phrases = [
   `Peça Já no iFood!`,
-  `<img src="/resources/img/logo-2.5.svg" class="ticker-icon" alt="Eagle logo">`,
+  `<img src="resources/img/logo-2.5.svg" class="ticker-icon" alt="Eagle logo">`,
   `Quero o Meu Cookie!`,
-  `<img src="/resources/img/logo-2.5.svg" class="ticker-icon" alt="Ealgle Logo">`
+  `<img src="resources/img/logo-2.5.svg" class="ticker-icon" alt="Ealgle Logo">`
 ];
 
 function fillTicker() {
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 
     /* How far the user needs to scroll for the WHOLE rainbow to disappear */
-    const totalScroll = 500; 
+    const totalScroll = 600; 
 
     /* Delay between each stripe disappearing */
     const segment = totalScroll / pairs.length;

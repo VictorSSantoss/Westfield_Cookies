@@ -22,6 +22,7 @@
          url(../fonts/03_FENDESERT/Fendesert-Sans-Rough.otf) format("opentype");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -155,6 +156,8 @@ body {
 /* Instagram gradient label */
 .insta-btn-nav {
   font-family: "Fendesert-Sans-Rough";
+  font-weight: normal;
+  font-style: normal;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -831,12 +834,16 @@ body {
   font-size: 4rem;
   margin-bottom: 1rem;
   font-family: "Fendesert-Script-Stamp";
+  font-weight: normal;
+  font-style: normal;
 }
 
 .ifood-text p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   font-family: "neato-serif-regular";
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* --------------- Image on the right --------------- */
