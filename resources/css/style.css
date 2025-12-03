@@ -179,6 +179,8 @@ body {
 /* WhatsApp gradient */
 .whats-btn-nav {
   font-family: "Fendesert-Sans-Rough";
+  font-weight: normal;
+  font-style: normal;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -428,6 +430,8 @@ body {
     padding: 5px 20px;
     margin-left: 10px;
     font-family: "Westroon";
+    font-weight: normal;
+    font-style: normal;
     transition: all 0.3s ease;
 }
 
@@ -874,6 +878,8 @@ body {
   text-align: center;
   color: #F9F4E4;
   font-family: sans-serif;
+  position: relative; 
+  z-index: 5;
 }
 
 /* Ensure the link takes up the full size of the container */
@@ -898,7 +904,9 @@ body {
 }
 
 .insta-header {
-    font-family: "Fendesert-Sans-Rough";
+  font-family: "Fendesert-Sans-Rough";
+  font-weight: normal;
+  font-style: normal;
 }
 
 .insta-header h2 {
@@ -1050,6 +1058,8 @@ body {
   padding: 60px 40px 40px;
   color: #E7E0C6;
   font-family: 'Westroon', serif;
+  font-weight: normal;
+  font-style: normal;
   overflow: hidden;
 }
 
@@ -1187,6 +1197,8 @@ body {
 /* ------------------------------- */
 .footer-bottom {
   font-family: "Fendesert-Sans-Rough";
+  font-weight: normal;
+  font-style: normal;
   color: #3A5A40;
   margin: 0px 50px;
   display: flex;
@@ -1215,6 +1227,8 @@ body {
 /* ------------------------------- */
 .footer-author-box {
   font-family: "Fendesert-Sans-Rough";
+  font-weight: normal;
+  font-style: normal;
   display: flex;
   align-items: center;
   gap: 14px;

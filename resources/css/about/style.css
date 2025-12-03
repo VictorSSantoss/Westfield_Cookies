@@ -1,71 +1,278 @@
-/*--------------- ABOUT BANNER WRAPPER ---------------*/
-.about-banner {
-  width: 100%;
-  font-family: "Inter", sans-serif;
-  text-align: center;
+@font-face {    
+    font-family: "Westroon";
+    src: url(../fonts/01_WESTROON/Westroon.woff2) format("woff2"),
+         url(../fonts/01_WESTROON/Westroon.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-/* TOP PART — CREAM BACKGROUND */
-.about-banner__top {
-  background-color: #F5F1E8; /* light cream */
-  padding: 40px 20px;
+@font-face {
+    font-family: "neato-serif-regular";
+    src: url(../fonts/04_NEATO-SERIF/neato-serif-regular.woff2) format("woff2"),
+         url(../fonts/04_NEATO-SERIF/neato-serif-regular.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-.about-banner__top h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #3A5A40; /* your green color */
-  margin: 0;
+@font-face {
+    font-family: "Fendesert-Sans-Rough";
+    src: url(../fonts/03_FENDESERT/Fendesert-Sans-Rough.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Sans-Rough.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-/* MAIN BLOCK — GREEN BACKGROUND */
-.about-banner__main {
-  background-color: #3A5A40; 
-  padding: 60px 25px;
-  color: #F5F1E8; /* cream text */
+@font-face {
+    font-family: "Fendesert-Script-Stamp";
+    src: url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-/* TEXT STYLE */
-.about-banner__main p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.25rem;
-  line-height: 1.6;
+/* ------------------------------- */
+/* ABOUT BANNER WRAPPER */
+/* ------------------------------- */
+/* Basic Reset and Font (Using a generic bold serif/slab-serif for visual approximation) */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Westroon', 'neato-serif-regular', 'Fendesert-Sans-Rough'; /* Fallback fonts */
 }
 
-/* --------------- Rainbow Divider Section --------------- */
-.rainbow-divider {
-  position: relative;
-  width: 100%;
-  height: 350px; /* adjust size if needed */
-  overflow: hidden;
+/* --- Section Container --- */
+.about-box {  
+    padding: 30px; 
+    position: relative; 
+    z-index: 0; 
+    /* Ensure no overflow clips the rainbow if it extends down */
+    overflow: visible; 
+}
+
+/* --- Black Header Box (The Main Visual Focus) --- */
+.header-box {
+    background-color: #3A5A40; 
+    padding: 50px 50px; 
+    border-radius: 3rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10; /* Highest Priority */
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center (optional) */
+} 
+
+.header-box img {
+  width: auto;
+  height: 20rem; 
+}
+
+/* Punctuation Style Adjustment (Emulating the square bracket comma from the image) */
+/* This is a visual trick and might require a custom font for a perfect match, 
+   but this selects and attempts to style the commas. */
+.header-box h1 br + br + br::before {
+    content: ','; /* Adds a comma before the last line break */
+    display: none; /* Hide for this CSS example */
+}
+
+/* --- Red Content Box (Two Columns) --- */
+.content-box {
+    display: flex;
+    justify-content: space-between; 
+    align-items: stretch; /* Stretch cards to match height if needed */
+    position: relative;
+    z-index: 5; /* Layer 3: Above Rainbow */
+    min-height: 300px;
+    padding: 20px 0;
+}
+
+.text-card {
+    background-color: #F9F4E4;
+    padding: 50px;
+    border-radius: 20px; /* Optional: Softens the look */
+    flex: 0 1 48%; /* Split width roughly 50/50 */
+    box-sizing: border-box;
+    /* Optional: Slight shadow to pop off the red/rainbow */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.body-text {
+    font-family: "Westroon";
+    color: #1a1a1a;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 0;
+}
+
+.body-card p {
+    max-width: 720px;      /* limita largura para leitura confortável */
+    line-height: 1.6;      /* espaço entre linhas */
+    font-size: 1.2rem;
+    color: #3A5A40;
+}
+
+.results-key {
+    font-family: "neato-serif-regular";
+    font-size: 2.2rem;
+    line-height: 1.1;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+}
+
+.results-key span {
+    color: #3A5A40;
+    display: block; /* Forces them to sit on their own lines */
+  }
+
+.results-key .line-1 {
+    margin-bottom: 20px; /* Adjust this number to increase/decrease space */
+}
+
+.results-card {
+  position: relative;   /* important! enables absolute positioning inside */
+  overflow: hidden;     /* optional: prevents icon from sticking out */
+}
+
+.results-card span {
+  position: relative;   /* ensures text is above the icon */
+  z-index: 2;          /* higher z-index to stay above the icon */
+}
+
+.card-decor {
+  position: absolute;
+  bottom: 5px;   /* distance from bottom */
+  left: 10px;    /* distance from right */
+  width: 320px;    /* size of icon */
+  pointer-events: none; /* icon doesn't block clicks */
+  z-index: 1;
+}
+
+
+.text-block {
+    /* The white background for high contrast */
+    background-color: #F9F4E4; 
+    /* Padding is applied here to create the white box around the text */
+    padding: 60px 50px; 
+    flex: 0 1 48%; /* Use slightly less than 50% to ensure space between columns */
+    height: 100%; /* Ensure both blocks fill the height if align-items: stretch was used */
+    box-sizing: border-box;
+}
+
+/* For smaller screens, stack the elements */
+@media (max-width: 900px) {
+    .content-box {
+        flex-direction: column;
+        gap: 30px; /* Space between the stacked elements */
+    }
+}
+
+.content-box .body-text {
+    flex: 0 1 45%; /* Allows it to grow a little, max width around 45% */
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 500;
+    margin: 0;
+}
+
+.icon-paragraph {
   display: flex;
-  justify-content: center;
   align-items: flex-start;
+  gap: 10px;
 }
 
-/* Wrapper to create the depth effect */
-.rainbow-wrapper {
-  width: 100%;
-  max-width: 900px;    /* Keeps it centered, not too big */
-  height: 100%;
-  position: relative;
-  perspective: 1200px; /* Depth */
-  transform-style: preserve-3d;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.para-icon {
+  width: 2rem;
+  margin-top: 4px;
+  opacity: .9;
+}
+
+.spin-icon {
+  width: 32px;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Right Text Column (Key Results Headline) --- */
+.content-box .results-key {
+    flex: 0 1 45%; /* Allows it to grow a little, max width around 45% */
+    color: #000000; /* Dark text on red background */
+    font-size: 2.2rem;
+    line-height: 1.1; /* Tight line height */
+    font-weight: 900; /* Extra bold */
+    text-transform: uppercase;
+    text-align: right; /* Text aligned to the right */
+    margin: 0;
+}
+
+/* Mobile Stack */
+@media (max-width: 900px) {
+    .content-box {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .text-card {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+    .results-key {
+        text-align: left;
+    }
+}
+
+/* ------------------------------- */
+/* RAINBOW DIVIDER SECTION */
+/* ------------------------------- */
+.rainbow {
+    /* Position relative to .about-box */
+    position: absolute;
+    /* Move it down slightly so it starts under the content area */
+    top: 0%; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 100%;
+    max-width: 300px;
+    height: 101%; /* Fill the remaining height */
+    
+    /* Layer 2: Above Red Bg (0), Below Content (5) */
+    z-index: -10; 
+    
+    perspective: 1500px; 
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* Let clicks pass through to background */
 }
 
 /* The vertical rainbow SVG */
 .rainbox-vertical__svg {
-  width: 40%;
-  height: 200%;
-  position: absolute;
-  transform-origin: top;
-  transform: rotateX(68deg) translateY(-120px); /* tilt backward */
-  opacity: 0;
-  animation: rainbowDrop 1.4s ease-out forwards;
+    width: 50%; 
+    height: 150%;
+    position: absolute;
+    transform-origin: top;
+    transform: rotateX(50deg) translateY(-100px); 
+    
+    /* Ensure opacity is 1 just in case animation fails */
+    opacity: 0; 
+    animation: rainbowDrop 1.4s ease-out forwards;
+    
+    backface-visibility: hidden; /* Fixes blur */
+    will-change: transform;
 }
 
 /* Animation: drop, tilt forward, appear in front */
@@ -93,7 +300,9 @@
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: rainbowDraw 1.1s ease-out forwards;
-  will-change: stroke-dashoffset;
+}
+@keyframes rainbowDraw {
+  to { stroke-dashoffset: 0; }
 }
 
 /* PAIR BLACK + RAINBOW TOGETHER */

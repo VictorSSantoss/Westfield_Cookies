@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 
     /* How far the user needs to scroll for the WHOLE rainbow to disappear */
-    const totalScroll = 600; 
+    const totalScroll = 660; 
 
     /* Delay between each stripe disappearing */
     const segment = totalScroll / pairs.length;
