@@ -73,7 +73,10 @@ body {
     color: #F9F4E4;
 }
 
-/* --------------- Scrolling Ticker --------------- */
+
+/* ------------------------------- */
+/* SCROLLING TICKER */
+/* ------------------------------- */
 .ticker-link {
   text-decoration: none;
   color: inherit;
@@ -129,7 +132,9 @@ body {
   margin: 0 1rem;
 } 
 
-/* --------------- Navigation Bar --------------- */
+/* ------------------------------- */
+/* NAVEGATION BAR */
+/* ------------------------------- */
 .nav-section {
   height: 80px;
   background-color: #f9f4e4;
@@ -146,7 +151,7 @@ body {
   z-index: 10;
 }
 
-/* --- LEFT SIDE BUTTONS --- */
+/* LEFT SIDE BUTTONS */
 .social-buttons-nav {
   display: flex;
   gap: 14px;
@@ -199,7 +204,7 @@ body {
   opacity: 0.9;
 }
 
-/* --- CENTER LOGO --- */
+/* CENTER LOGO */
 .logo {
   display: flex;
   align-items: center;
@@ -213,7 +218,7 @@ body {
   width: auto;
 }
 
-/* --- RIGHT SIDE BUTTON --- */
+/* RIGHT SIDE BUTTON */
 .nav-button {
   font-family: "Fendesert-Sans-Rough";
   width: 90px;
@@ -233,7 +238,9 @@ body {
   color: #f9f4e4;
 }
 
-/* --- RESPONSIVE --- */
+/* ------------------------------- */
+/* RESPONSIVE */
+/* ------------------------------- */
 @media (max-width: 768px) {
   .nav-section {
     flex-direction: column;
@@ -255,7 +262,7 @@ body {
   }
 }
 
-/* ---------------------- Logo Circle Animation --------------- */
+/* Logo Circle Animation */
 .img-circle {
     background-color: #fe6f1f;
     border-radius: 100%;
@@ -285,7 +292,7 @@ body {
   to   { transform: rotate(360deg); }
 }
 
-/* --------------- Banner --------------- */
+/* Banner */
 .banner {
     display: flex;
     justify-content: center;
@@ -325,98 +332,6 @@ body {
     position: absolute;
     top: 170px;
     z-index: 1;
-}
-
-#cookie-1 {
-    width: 230px;
-    height: 230px;
-    z-index: 2;
-    position: absolute;
-    top: 440px;
-    left: 230px;
-    /*animation: float-1 15s ease-in-out infinite;*/
-    /*filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));*/
-}
-
-#cookie-2 {
-    width: 230px;
-    height: 230px;
-    top: 420px;
-    left: 350px;
-    z-index: 3;
-    position: absolute;
-    /*animation: float-2 15s ease-in-out infinite;*/
-    /*filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));*/
-    margin-bottom: 100px;
-}
-
-#cookie-3 {
-    width: 230px;
-    height: 230px;
-    top: 360px;
-    left: 200px;
-    z-index: 1;
-    position: absolute;
-    /*animation: float-2 15s ease-in-out infinite;*/
-    /*filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));*/
-    margin-bottom: 100px;
-}
-
-/* --------------- Cookies Animation --------------- */
-
-/* Hide cookies at first */
-.cookie {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
-}
-
-/* Delay each one */
-#cookie-1 {
-    animation-delay: 0.4s;
-}
-#cookie-2 {
-    animation-delay: 1.1s;
-}
-#cookie-3 {
-    animation-delay: 1.8s;
-}
-
-/* --------------- Animations --------------- */
-
-@keyframes float-1 {
-    0%   { transform: translate(0px, 0px); }
-    50%  { transform: translate(9px, -9px); }
-    100% { transform: translate(0px, 0px); }
-  }
-
-  @keyframes float-2 {
-    0%   { transform: translate(0px, 0px); }
-    50%  { transform: translate(9px, 9px); }
-    100% { transform: translate(0px, 0px); }
-  }
-
-  @keyframes floatY {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-20px); } /* goes up */
-  100% { transform: translateY(0); }     /* back down */
-}
-
-@keyframes spin {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Smooth fade + move up */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* --------------- Buttons --------------- */
@@ -523,7 +438,9 @@ body {
     margin-top: 0px;
 }
 
-/* --------------- Flavors Items --------------- */
+/* ------------------------------- */
+/* CATALOG TITLE */
+/* ------------------------------- */
 .flavors {
     display: grid;
     margin: 20px;
@@ -549,7 +466,9 @@ body {
     margin-top: 0px;
 }
 
-/* --------------- Second Catalog --------------- */
+/* ------------------------------- */
+/* CATALOG */
+/* ------------------------------- */
 .catalog-all-items {
     display: flex;
     justify-content: space-around;
@@ -566,13 +485,17 @@ body {
     */
 }
 
-/* --------------- catalog-items --------------- */
+
+
+/* ------------------------------- */
+/* CATALOG ITEMS */
+/* ------------------------------- */
 .catalog-item {
     position: relative;
     width: 320px;
     height: 500px;
     border-radius: 25px;
-    background-color: #70876a;
+    /*background-color: #70876a;*/
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -582,8 +505,8 @@ body {
     padding: 20px 15px;
     text-align: center;
     overflow: hidden;
-    border: 4px solid #3a5a40; /* Blue */
-    box-shadow: 0 0 0 4px #6bc4a6;
+    /*border: 4px solid #3a5a40;*/
+    /*box-shadow: 0 0 0 4px #6bc4a6;*/
     margin-top: 20px;
     cursor: pointer;
     z-index: 1;
@@ -595,6 +518,26 @@ body {
     transform: scale(1.05);
 }
 
+.catalog-item::before {
+    content: '';
+    position: absolute;
+    /* Dimensions for a horizontal oval */
+    width: 280px;
+    height: 150px;
+    
+    /* Position it behind the cookie */
+    top: 270px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Shape and Color */
+    background-color: #6BC4A6; /* Light background color */
+    border-radius: 50%; /* Creates the oval shape */
+    
+    /* Stacking Context */
+    z-index: 5; /* Puts it behind the cookie (z-index: 10) but in front of the item background */
+}
+
 .background-decor {
     position: absolute;
     width: 400px;
@@ -603,20 +546,27 @@ body {
     z-index: -1;
 }
 
-.stars {
-    position: relative;
-    width: 150px;
-    height: auto;
-    top: 10px;
-}
-
 .item-title {
     position: absolute;
+    top: -30px;
     font-family: "Fendesert-Script-Stamp";
     font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
     font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
     font-size: 5rem;
-    color: #f9f4e4;
+    color: #3A5A40;
+    z-index: 10;
+}
+
+/* Weight (Below Title) */
+.item-weight {
+    position: absolute;
+    top: 120px; /* Adjust based on your item-title height */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Fendesert-Script-Stamp";
+    font-size: 1.7rem;
+    color: #3A5A40;
+    font-weight: 600;
     z-index: 10;
 }
 
@@ -635,6 +585,20 @@ body {
     height: auto;
     top: 200px;
     transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+/* Short Description (Below Cookie) */
+.item-description {
+    position: absolute;
+    bottom: -15px; /* Position above the bottom edge */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    font-family: "Westroon";
+    font-size: 1.4rem;
+    color: #3A5A40;
+    line-height: 1.3;
     z-index: 10;
 }
 
@@ -666,28 +630,108 @@ body {
   animation-delay: 2s;
 }
 
-/*
-.catalog-item::after {
-  content: "";
+/* ------------------------------- */
+/* GOLD STAR SPARKLE SYSTEM v3 */
+/* ------------------------------- */
+
+.sparkles {
   position: absolute;
   inset: 0;
-  background-color: #3a5a40;
-  background-size: cover;
-  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+/* BASE STAR */
+.star {
+  position: absolute;
+  aspect-ratio: 1;
+
+  background: radial-gradient(circle, #fff6c8 20%, #f5c26b 45%, #d89b2d 70%);
+  clip-path: polygon(
+    50% 0%,
+    61% 38%,
+    100% 50%,
+    61% 62%,
+    50% 100%,
+    39% 62%,
+    0% 50%,
+    39% 38%
+  );
+
   opacity: 0;
-  transform: scale(0.9);
-  z-index: -2;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  filter: drop-shadow(0 0 6px rgba(255, 200, 80, 0.9));
+
+  animation:
+    sparkleFade 3.5s infinite ease-in-out,
+    floatDrift 6s infinite ease-in-out;
 }
 
-.catalog-item:hover::after {
-  opacity: 1;
-  transform: scale(1);
+
+/* RANDOMIZED STAR SIZES */
+
+.star:nth-child(1) { width: 10px; }
+.star:nth-child(2) { width: 14px; }
+.star:nth-child(3) { width: 8px; }
+.star:nth-child(4) { width: 12px; }
+.star:nth-child(5) { width: 16px; }
+
+
+/* RANDOM POSITIONS + TIMINGS */
+
+.star:nth-child(1) { top: 60%; left: 15%; animation-delay: 0s, 0s; }
+.star:nth-child(2) { top: 70%; left: 80%; animation-delay: 1s, 0.3s; }
+.star:nth-child(3) { top: 45%; left: 55%; animation-delay: 2s, 0.6s; }
+.star:nth-child(4) { top: 65%; left: 30%; animation-delay: 2.7s, 0.9s; }
+.star:nth-child(5) { top: 25%; left: 55%; animation-delay: 3.5s, 1.2s; }
+
+
+/* RARE BIG SHINE BURST */
+
+.star:nth-child(5) {
+  animation:
+    sparkleFade 3.5s infinite ease-in-out,
+    floatDrift 6s infinite ease-in-out,
+    shineBurst 12s infinite ease-in-out;
 }
-*/
 
-/* --------------- Start - ingredients animation --------------- */
 
+/* ANIMATIONS */
+
+/* Twinkle + scale + rotation */
+@keyframes sparkleFade {
+  0%   { opacity: 0; transform: scale(0.2) rotate(0deg); }
+  35%  { opacity: 1; transform: scale(1) rotate(90deg); }
+  70%  { opacity: 0.6; transform: scale(0.6) rotate(180deg); }
+  100% { opacity: 0; transform: scale(0.2) rotate(360deg); }
+}
+
+/* Smooth drifting movement */
+@keyframes floatDrift {
+  0%   { translate: 0 0; }
+  50%  { translate: 14px -18px; }
+  100% { translate: 0 0; }
+}
+
+/* Rare big magical burst */
+@keyframes shineBurst {
+  0%   { transform: scale(1); filter: drop-shadow(0 0 6px rgba(255,200,80,0.9)); }
+  50%  { transform: scale(2); filter: drop-shadow(0 0 18px rgba(255,220,120,1)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(255,200,80,0.9)); }
+}
+
+@media (max-width: 768px) {
+  .star {
+    animation:
+      sparkleFade 5s infinite ease-in-out; /* no drift on mobile */
+    filter: drop-shadow(0 0 4px rgba(255, 200, 80, 0.7));
+  }
+}
+
+
+/* ------------------------------- */
+/* CATALOG HOVER ANIMATIONS */
+/* ------------------------------- */
 .catalog-item {
   position: relative;
 }
@@ -741,7 +785,7 @@ body {
   width: 70px;
 }
 
-/* ---------------- HOVER POSITIONS ---------------- */
+/* HOVER POSITIONS */
 
 .catalog-item:hover .img-1 {
   --tx: -180%;
@@ -758,14 +802,13 @@ body {
 .catalog-item:hover .img-3 {
   --tx: 180%;
   --ty: 190%;
-  --scale: 1;
 }
 
 .catalog-item:hover .catalog-img {
   opacity: 1;
 }
 
-/* ---------------- FLOATING ANIMATION (img-1 & img-3) ---------------- */
+/* FLOATING ANIMATION (img-1 & img-3) */
 .img-1,
 .img-3 {
   animation: floatPath 3s ease-in-out infinite;
@@ -778,7 +821,7 @@ body {
   100% { offset-distance: 0%; }
 }
 
-/* ---------------- SPIN ANIMATION (img-2) ---------------- */
+/* SPIN ANIMATION (img-2) */
 .img-2 {
   animation: spin-self 15s linear infinite;
   /* Ensure offset-path doesn't interfere */
@@ -789,9 +832,13 @@ body {
   from { --rot: 0deg; }
   to   { --rot: 360deg; }
 }
-/* --------------- End - ingredients animation --------------- */
+/* ------------------------------- */
+/* END CATALOG ANIMATIONS */
+/* ------------------------------- */
 
-/* --------------- Ifood banner --------------- */
+/* ------------------------------- */
+/* IFOOD SECTION */
+/* ------------------------------- */
 .ifood-section {
     width: 900px;
     height: 600px;
@@ -807,7 +854,7 @@ body {
 
 }
 
-/* --------------- Layout: text left, image right --------------- */
+/* Layout: text left, image right */
 .ifood-content {
   display: flex;
   align-items: center;
@@ -850,7 +897,7 @@ body {
   font-style: normal;
 }
 
-/* --------------- Image on the right --------------- */
+/* Image on the right */
 .ifood-image img {
   position: relative;
   width: 400px;
@@ -859,7 +906,7 @@ body {
   border-radius: 2.7rem;
 }
 
-/* --------------- Responsive: stack on mobile --------------- */
+/* Responsive: stack on mobile */
 @media (max-width: 768px) {
   .ifood-content {
     flex-direction: column;
@@ -871,7 +918,7 @@ body {
   }
 }
 
-/* --------------- Instagram Section --------------- */
+/* Instagram Section */
 .insta-section {
   background: #fE6F1F;
   padding: 80px 20px;
@@ -1053,6 +1100,8 @@ body {
 }
 
 /* ------------------------------- */
+/* SITE FOOTER */
+/* ------------------------------- */
 .site-footer {
   background: #3A5A40;
   padding: 60px 40px 40px;
@@ -1072,9 +1121,7 @@ body {
   to { opacity: 1; }
 }
 
-/* ------------------------------- */
 /* TOP SECTION */
-/* ------------------------------- */
 .footer-top {
   display: flex;
   align-items: center;
@@ -1082,17 +1129,13 @@ body {
   margin-bottom: -50px;
 }
 
-/* ------------------------------- */
 /* LEFT SIDE WITH ICONS */
-/* ------------------------------- */
 .footer-left {
   margin-left: 8em;
   gap: 12px;
 }
 
-/* ------------------------------- */
 /* LEFT LINKS */
-/* ------------------------------- */
 .footer-link {
   color: #E7E0C6;
   text-decoration: none;
@@ -1119,9 +1162,7 @@ body {
   width: 100%;
 }
 
-/* ------------------------------- */
 /* CENTER CIRCLE */
-/* ------------------------------- */
 .footer-animation-wrapper {
   position: relative;
 }
@@ -1149,9 +1190,7 @@ body {
   to   { transform: rotate(-360deg); }
 }
 
-/* ------------------------------- */
 /* RIGHT SIDE WITH ICONS */
-/* ------------------------------- */
 .footer-right {
   margin-right: 8em;
   gap: 12px;
@@ -1179,9 +1218,7 @@ body {
   filter: drop-shadow(0 0 6px #e7cec6);
 }
 
-/* ------------------------------- */
 /* WAVE DIVIDER */
-/* ------------------------------- */
 .footer-divider {
   width: 100%;
   height: 10em;
@@ -1192,9 +1229,7 @@ body {
   margin: 25px 0;
 }
 
-/* ------------------------------- */
 /* BOTTOM SECTION */
-/* ------------------------------- */
 .footer-bottom {
   font-family: "Fendesert-Sans-Rough";
   font-weight: normal;
@@ -1222,9 +1257,7 @@ body {
   } 
 }
 
-/* ------------------------------- */
 /* Author */
-/* ------------------------------- */
 .footer-author-box {
   font-family: "Fendesert-Sans-Rough";
   font-weight: normal;
@@ -1269,3 +1302,5 @@ body {
   color: #E7E0C6;
   white-space: nowrap;
 }
+
+
