@@ -25,7 +25,23 @@ function fillTicker() {
 fillTicker();
 window.addEventListener("resize", fillTicker);
 
+// Hamburger Menu Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger-btn");
+    const navMenu = document.getElementById("nav-menu");
 
+    hamburger.addEventListener("click", () => {
+        // Toggle the active class on both the button (for animation) and the menu
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    // Optional: Close menu when a link is clicked
+    document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
+});
 
 // Array of words to display one by one
 const words = ["Chewy", "Crunchy", "Delicious"];
@@ -211,18 +227,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500); // matches your CSS draw time
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

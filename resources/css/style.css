@@ -7,10 +7,30 @@
     font-display: swap;
 }
 
+@font-face {    
+    font-family: "Neue-Kabel-Medium";
+    src: url(../fonts/01_WESTROON/Neue-Kabel-Medium.woff2) format("woff2"),
+         url(../fonts/01_WESTROON/Neue-Kabel-Medium.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
 @font-face {
-    font-family: "neato-serif-regular";
-    src: url(../fonts/04_NEATO-SERIF/neato-serif-regular.woff2) format("woff2"),
-         url(../fonts/04_NEATO-SERIF/neato-serif-regular.otf) format("opentype");
+    font-family: "Neue-Kabel-Extrabold";
+    src: url(../fonts/04_NEATO-SERIF/Neue-Kabel-Extrabold.woff2) format("woff2"),
+         url(../fonts/04_NEATO-SERIF/Neue-Kabel-Extrabold.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fendesert-Sans-Regular";
+    src: url(../fonts/03_FENDESERT/Fendesert-Sans-Regular.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Sans-Regular.otf) format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -26,6 +46,42 @@
 }
 
 @font-face {
+    font-family: "Fendesert-Sans-Stamp";
+    src: url(../fonts/03_FENDESERT/Fendesert-Sans-Stamp.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Sans-Stamp.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fendesert-Script-Regular";
+    src: url(../fonts/03_FENDESERT/Fendesert-Script-Regular.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Script-Regular.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fendesert-Script-Rough";
+    src: url(../fonts/03_FENDESERT/Fendesert-Script-Rough.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Script-Rough.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fendesert-Script-Rough";
+    src: url(../fonts/03_FENDESERT/Fendesert-Script-Rough.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Script-Rough.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: "Fendesert-Script-Stamp";
     src: url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.woff2) format("woff2"),
          url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.otf) format("opentype");
@@ -33,6 +89,25 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: "neato-serif-regular";
+    src: url(../fonts/5_AXR-OUTRUNNER/neato-serif-regular.woff2) format("woff2"),
+         url(../fonts/5_AXR-OUTRUNNER/neato-serif-regular.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "AXR-Outrunner";
+    src: url(../fonts/5_AXR-OUTRUNNER/AXR-Outrunner.woff2) format("woff2"),
+         url(../fonts/5_AXR-OUTRUNNER/AXR-Outrunner.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 body {
     font-family: "Westroon";
@@ -412,38 +487,16 @@ body {
     align-items: center;
 }
 
-/* --------------- Flavors Items --------------- */
-.flavors {
-    display: grid;
-    margin: 20px;
-}
-
-.flavors h2 {
-    font-family: "Westroon";
-    font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-size: 4rem;
-    color: #3a5a40;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.flavors h3 {
-    font-family: "Fendesert-Sans-Rough";
-    font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-size: 1.5rem;
-    color: #3a5a40;
-    text-align: center;
-    margin-top: 0px;
-}
 
 /* ------------------------------- */
 /* CATALOG TITLE */
 /* ------------------------------- */
 .flavors {
     display: grid;
-    margin: 20px;
+    margin: 60px auto 30px;
+    margin-bottom: 10px;
+    max-width: 1200px;
+    gap: 10px;
 }
 
 .flavors h2 {
@@ -453,7 +506,7 @@ body {
     font-size: 4rem;
     color: #3a5a40;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .flavors h3 {
@@ -474,18 +527,13 @@ body {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 25px;
-    padding: 40px 20px;
+    gap: 35px;
+    padding: 25px 40px 60px;
     height: auto;
     width: 100%;
-    /*
-    background-image: url("../img/pattern-5.5-sem-fundo-4000px-4000px.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    */
+    max-width: 1400px;
+    margin: 0 auto;
 }
-
-
 
 /* ------------------------------- */
 /* CATALOG ITEMS */
@@ -495,7 +543,6 @@ body {
     width: 320px;
     height: 500px;
     border-radius: 25px;
-    /*background-color: #70876a;*/
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -505,9 +552,6 @@ body {
     padding: 20px 15px;
     text-align: center;
     overflow: hidden;
-    /*border: 4px solid #3a5a40;*/
-    /*box-shadow: 0 0 0 4px #6bc4a6;*/
-    margin-top: 20px;
     cursor: pointer;
     z-index: 1;
     transition: transform 0.3s ease;
@@ -549,12 +593,12 @@ body {
 .item-title {
     position: absolute;
     top: -30px;
-    font-family: "Fendesert-Script-Stamp";
+    font-family: "Fendesert-script-regular";
     font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
     font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-size: 5rem;
+    font-size: 4rem;
     color: #3A5A40;
-    z-index: 10;
+    z-index: 20;
 }
 
 /* Weight (Below Title) */
@@ -563,7 +607,7 @@ body {
     top: 120px; /* Adjust based on your item-title height */
     left: 50%;
     transform: translateX(-50%);
-    font-family: "Fendesert-Script-Stamp";
+    font-family: "Fendesert-script-regular";
     font-size: 1.7rem;
     color: #3A5A40;
     font-weight: 600;
@@ -630,103 +674,202 @@ body {
   animation-delay: 2s;
 }
 
-/* ------------------------------- */
-/* GOLD STAR SPARKLE SYSTEM v3 */
-/* ------------------------------- */
 
-.sparkles {
+/* ---------------------------------------------------------- */
+/* GOLD STAR SPARKLE SYSTEM v8 — WITH PER-ITEM STAR POSITIONS */
+/* ---------------------------------------------------------- */
+
+/* STAR BASE POSITIONING */
+.catalog-item { position: relative; }
+
+.catalog-item .star {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  transform: translate(-50%,-50%);
   z-index: 20;
-  overflow: hidden;
-}
-
-/* BASE STAR */
-.star {
-  position: absolute;
-  aspect-ratio: 1;
-
-  background: radial-gradient(circle, #fff6c8 20%, #f5c26b 45%, #d89b2d 70%);
-  clip-path: polygon(
-    50% 0%,
-    61% 38%,
-    100% 50%,
-    61% 62%,
-    50% 100%,
-    39% 62%,
-    0% 50%,
-    39% 38%
-  );
-
+  width: var(--size);
+  height: var(--size);
+  pointer-events: none;
   opacity: 0;
-  filter: drop-shadow(0 0 6px rgba(255, 200, 80, 0.9));
-
-  animation:
-    sparkleFade 3.5s infinite ease-in-out,
-    floatDrift 6s infinite ease-in-out;
 }
 
+/* ⭐ NEW: Apply custom coordinates */
+.catalog-item .star-1 { top: var(--s1-top); left: var(--s1-left); }
+.catalog-item .star-2 { top: var(--s2-top); left: var(--s2-left); }
+.catalog-item .star-3 { top: var(--s3-top); left: var(--s3-left); }
+.catalog-item .star-4 { top: var(--s4-top); left: var(--s4-left); }
+.catalog-item .star-5 { top: var(--s5-top); left: var(--s5-left); }
 
-/* RANDOMIZED STAR SIZES */
-
-.star:nth-child(1) { width: 10px; }
-.star:nth-child(2) { width: 14px; }
-.star:nth-child(3) { width: 8px; }
-.star:nth-child(4) { width: 12px; }
-.star:nth-child(5) { width: 16px; }
-
-
-/* RANDOM POSITIONS + TIMINGS */
-
-.star:nth-child(1) { top: 60%; left: 15%; animation-delay: 0s, 0s; }
-.star:nth-child(2) { top: 70%; left: 80%; animation-delay: 1s, 0.3s; }
-.star:nth-child(3) { top: 45%; left: 55%; animation-delay: 2s, 0.6s; }
-.star:nth-child(4) { top: 65%; left: 30%; animation-delay: 2.7s, 0.9s; }
-.star:nth-child(5) { top: 25%; left: 55%; animation-delay: 3.5s, 1.2s; }
-
-
-/* RARE BIG SHINE BURST */
-
-.star:nth-child(5) {
-  animation:
-    sparkleFade 3.5s infinite ease-in-out,
-    floatDrift 6s infinite ease-in-out,
-    shineBurst 12s infinite ease-in-out;
+/* ---------------------------------- */
+/* STAR VISUALS (same as before)      */
+/* ---------------------------------- */
+:root {
+  --size: 160px;
+  --big-ray-thickness: 0.9px;
+  --big-ray-length: 15%;
+  --small-ray-thickness: 0.9px;
+  --small-ray-length: 10%;
+  --gold: 255, 215, 95;
 }
 
+.star { position: relative; }
 
-/* ANIMATIONS */
+.ray {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform-origin: center;
+  pointer-events: none;
+}
 
-/* Twinkle + scale + rotation */
+.big-ray {
+  width: var(--big-ray-length);
+  height: var(--big-ray-thickness);
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(var(--gold),0.05) 15%,
+    rgb(255, 230, 154) 50%,
+    rgba(var(--gold),0.05) 85%,
+    transparent 100%
+  );
+  filter: blur(1px);
+}
+.big-ray.vert { transform: translate(-50%, -50%) rotate(90deg); }
+
+.small-ray {
+  width: var(--small-ray-length);
+  height: var(--small-ray-thickness);
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 50px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(var(--gold),0.05) 5%,
+    rgba(255, 230, 154,1) 50%,
+    rgba(var(--gold),0.05) 95%,
+    transparent 100%
+  );
+  filter: blur(0.6px);
+}
+.small-ray.b { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.center {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  width: 0px; height: 0px;
+  background: radial-gradient(
+    circle,
+    rgba(255,230,120,1) 0%,
+    rgba(255,215,95,0.9) 25%,
+    rgba(255,215,95,0.65) 55%,
+    rgba(255,215,95,0.25) 75%,
+    transparent 100%
+  );
+  filter: blur(4px);
+  box-shadow:
+    0 0 12px rgba(255,215,95,1),
+    0 0 28px rgba(255,215,95,0.6),
+    0 0 55px rgba(255,215,95,0.2);
+}
+
+/* ---------------------------------- */
+/* SPARKLE ANIMATION                  */
+/* ---------------------------------- */
 @keyframes sparkleFade {
-  0%   { opacity: 0; transform: scale(0.2) rotate(0deg); }
-  35%  { opacity: 1; transform: scale(1) rotate(90deg); }
-  70%  { opacity: 0.6; transform: scale(0.6) rotate(180deg); }
-  100% { opacity: 0; transform: scale(0.2) rotate(360deg); }
+  0%,100% { opacity: 0; transform: scale(1); }
+  50%     { opacity: 1; transform: scale(1.28); }
 }
 
-/* Smooth drifting movement */
-@keyframes floatDrift {
-  0%   { translate: 0 0; }
-  50%  { translate: 14px -18px; }
-  100% { translate: 0 0; }
+.catalog-item .star {
+  animation: sparkleFade var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
 }
 
-/* Rare big magical burst */
-@keyframes shineBurst {
-  0%   { transform: scale(1); filter: drop-shadow(0 0 6px rgba(255,200,80,0.9)); }
-  50%  { transform: scale(2); filter: drop-shadow(0 0 18px rgba(255,220,120,1)); }
-  100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(255,200,80,0.9)); }
-}
+/* ---------------------------------- */
+/* RANDOMIZED TIMINGS (your previous) */
+/* ---------------------------------- */
 
-@media (max-width: 768px) {
-  .star {
-    animation:
-      sparkleFade 5s infinite ease-in-out; /* no drift on mobile */
-    filter: drop-shadow(0 0 4px rgba(255, 200, 80, 0.7));
+/* ITEM 1 — custom positions + random timing */
+.catalog-item:nth-child(1) {
+  --s1-top: 10%; --s1-left: 59%;
+  --s2-top: 55%; --s2-left: 45%;
+  --s3-top: 45%; --s3-left: 55%;
+  --s4-top: 26%; --s4-left: 30%;
+  --s5-top: 42%; --s5-left: -5%;
+}
+.catalog-item:nth-child(1) .star-1 { --dur: 2.10s; --delay: 0.23s; }
+.catalog-item:nth-child(1) .star-2 { --dur: 3.75s; --delay: 1.12s; }
+.catalog-item:nth-child(1) .star-3 { --dur: 2.92s; --delay: 0.68s; }
+.catalog-item:nth-child(1) .star-4 { --dur: 4.40s; --delay: 2.33s; }
+.catalog-item:nth-child(1) .star-5 { --dur: 3.05s; --delay: 1.05s; }
+
+/* ITEM 2 — example custom layout (you can change later) */
+.catalog-item:nth-child(2) {
+  --s1-top: 18%; --s1-left: 70%;
+  --s2-top: 48%; --s2-left: 85%;
+  --s3-top: 60%; --s3-left: 20%;
+  --s4-top: 32%; --s4-left: 40%;
+  --s5-top: 12%; --s5-left: 8%;
+}
+.catalog-item:nth-child(2) .star-1 { --dur: 2.67s; --delay: 0.85s; }
+.catalog-item:nth-child(2) .star-2 { --dur: 4.10s; --delay: 2.90s; }
+.catalog-item:nth-child(2) .star-3 { --dur: 3.00s; --delay: 0.10s; }
+.catalog-item:nth-child(2) .star-4 { --dur: 5.15s; --delay: 1.45s; }
+.catalog-item:nth-child(2) .star-5 { --dur: 3.40s; --delay: 3.20s; }
+
+/* ITEM 3 — positions for item 3 */
+.catalog-item:nth-child(3) {
+  --s1-top: 15%; --s1-left: 60%;
+  --s2-top: 55%; --s2-left: 75%;
+  --s3-top: 35%; --s3-left: 25%;
+  --s4-top: 25%; --s4-left: 42%;
+  --s5-top: 45%; --s5-left: 10%;
+}
+.catalog-item:nth-child(3) .star-1 { --dur: 1.95s; --delay: 0.50s; }
+.catalog-item:nth-child(3) .star-2 { --dur: 3.60s; --delay: 1.90s; }
+.catalog-item:nth-child(3) .star-3 { --dur: 2.30s; --delay: 0.02s; }
+.catalog-item:nth-child(3) .star-4 { --dur: 4.80s; --delay: 2.00s; }
+.catalog-item:nth-child(3) .star-5 { --dur: 3.25s; --delay: 1.60s; }
+
+/* ITEM 4 */
+.catalog-item:nth-child(4) {
+  --s1-top: 20%; --s1-left: 50%;
+  --s2-top: 33%; --s2-left: 78%;
+  --s3-top: 60%; --s3-left: 48%;
+  --s4-top: 38%; --s4-left: 20%;
+  --s5-top: 10%; --s5-left: 6%;
+}
+.catalog-item:nth-child(4) .star-1 { --dur: 2.40s; --delay: 0.30s; }
+.catalog-item:nth-child(4) .star-2 { --dur: 4.90s; --delay: 2.50s; }
+.catalog-item:nth-child(4) .star-3 { --dur: 3.10s; --delay: 0.90s; }
+.catalog-item:nth-child(4) .star-4 { --dur: 5.40s; --delay: 3.05s; }
+.catalog-item:nth-child(4) .star-5 { --dur: 3.70s; --delay: 1.20s; }
+
+/* ITEM 5 */
+.catalog-item:nth-child(5) {
+  --s1-top: 12%; --s1-left: 72%;
+  --s2-top: 40%; --s2-left: 90%;
+  --s3-top: 55%; --s3-left: 40%;
+  --s4-top: 20%; --s4-left: 25%;
+  --s5-top: 48%; --s5-left: 0%;
+}
+.catalog-item:nth-child(5) .star-1 { --dur: 2.05s; --delay: 0.95s; }
+.catalog-item:nth-child(5) .star-2 { --dur: 3.85s; --delay: 1.30s; }
+.catalog-item:nth-child(5) .star-3 { --dur: 2.75s; --delay: 0.15s; }
+.catalog-item:nth-child(5) .star-4 { --dur: 4.60s; --delay: 2.70s; }
+.catalog-item:nth-child(5) .star-5 { --dur: 3.00s; --delay: 1.80s; }
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .catalog-item .star {
+    animation: none !important;
+    opacity: 1 !important;
   }
 }
+
 
 
 /* ------------------------------- */
@@ -737,11 +880,12 @@ body {
 }
 
 .cookie-wrapper {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
+  z-index: 10;
 }
 
 .catalog-img {
@@ -785,23 +929,31 @@ body {
   width: 70px;
 }
 
+.catalog-img.img-1,
+.catalog-img.img-2,
+.catalog-img.img-3 {
+  position: relative;
+  z-index: 10;
+}
+
 /* HOVER POSITIONS */
 
 .catalog-item:hover .img-1 {
-  --tx: -180%;
-  --ty: -40%;
+  --tx: -60%;
+  --ty: -0%;
   --scale: 1;
 }
 
 .catalog-item:hover .img-2 {
-  --tx: 120%;
-  --ty: -120%;
+  --tx: 105%;
+  --ty: -100%;
   --scale: 1;
 }
 
 .catalog-item:hover .img-3 {
-  --tx: 180%;
-  --ty: 190%;
+  --tx: 60%;
+  --ty: 200%;
+  --scale: 1;
 }
 
 .catalog-item:hover .catalog-img {
@@ -839,6 +991,7 @@ body {
 /* ------------------------------- */
 /* IFOOD SECTION */
 /* ------------------------------- */
+
 .ifood-section {
     width: 900px;
     height: 600px;
@@ -846,39 +999,109 @@ body {
     position: relative;
     margin: 90px auto;
     display: block;
+    
+    /* REMOVED: background, border, and border-radius from here */
+    /* REMOVED: overflow: hidden; (This allows the sticker to be seen when it pops out the top) */
+    
+    /* Establishes the stacking context for children */
+    z-index: 10; 
+}
+
+/* NEW: This creates the "Green Wall" layer */
+.ifood-section::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Stretches to fill the parent */
+    
+    /* MOVED STYLES: The visual box is now here */
     background-color: #6bc4a6;
     border: #70876a 4px solid;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 3rem;
-
+    
+    /* LAYER POSITION: Above the sticker (5), but below the content (20) */
+    z-index: 8; 
 }
 
 /* Layout: text left, image right */
 .ifood-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+    position: relative;
+    /* LAYER POSITION: Topmost */
+    z-index: 20; 
+    
+    /* ... keep your existing flex styles ... */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.aguia-adesivo {
-  position: absolute;
-  top: -55px;
-  left: -35px;
-  width: 90px;
-  height: auto;
+.eagle-img {
+    position: absolute;
+    top: -43px;
+    left: 70px;
+    width: 90px;
+    height: auto;
+    
+    /* LAYER POSITION: Bottom (Behind the ::before background) */
+    z-index: 5; 
+    
+    /* SPY ANIMATION */
+    /* spyPeek: name of the animation
+       6s: total loop time (hidden + peeking time)
+       infinite: repeats forever
+       ease-in-out: smooth acceleration
+    */
+    animation: spyPeek 4s ease-in-out infinite;
+    
+    /* Start position (Hidden behind the wall) */
+    transform: translateY(150px);
+}
+
+
+/* .AGUIA-ADESIVO ANIMATIONS */
+
+@keyframes spyPeek {
+    /* PHASE 1: Hiding (Wait at the bottom) */
+    0%, 10% {
+        transform: translateY(150px) rotate(0deg);
+    }
+
+    /* PHASE 2: Pop Up (Peek!) */
+    15% {
+        transform: translateY(0px) rotate(-1deg); /* Slight tilt left */
+    }
+
+    /* PHASE 3: Spying (Look around slightly) */
+    25% {
+        transform: translateY(0px) rotate(1deg); /* Tilt right */
+    }
+    35% {
+        transform: translateY(0px) rotate(-2deg); /* Tilt left again */
+    }
+    40% {
+        transform: translateY(0px) rotate(0deg); /* Back to center */
+    }
+
+    /* PHASE 4: Hide Quickly (Run away!) */
+    45% {
+        transform: translateY(150px) rotate(0deg);
+    }
+
+    /* PHASE 5: Stay Hidden (Wait for next loop) */
+    100% {
+        transform: translateY(150px);
+    }
 }
 
 .ifood-text {
   color: #000000;
   margin-left: 10rem;
-  font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-  font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
+  font-weight: normal; 
+  font-style: normal; 
 }
 
 .ifood-text h2 {
@@ -918,7 +1141,9 @@ body {
   }
 }
 
-/* Instagram Section */
+/* ------------------------------- */
+/* INSTAGRAM SECTION */
+/* ------------------------------- */
 .insta-section {
   background: #fE6F1F;
   padding: 80px 20px;
@@ -1165,6 +1390,7 @@ body {
 /* CENTER CIRCLE */
 .footer-animation-wrapper {
   position: relative;
+  padding: 20px;
 }
 
 .footer-circle {
@@ -1303,4 +1529,365 @@ body {
   white-space: nowrap;
 }
 
+/* =============================== */
+/* RESPONSIVE NAV (Mobile)         */
+/* =============================== */
+
+@media (max-width: 900px) { /* Trigger sooner (tablet/mobile) */
+  
+  .nav-section {
+    justify-content: space-between; /* Spread Logo and Hamburger */
+  }
+
+  /* Reset Logo Position for Mobile */
+  .logo {
+    position: static;
+    transform: none;
+    margin: 0;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger */
+  }
+
+  /* Hamburger Animation when active */
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* The Dropdown Menu */
+  .nav-menu {
+    position: absolute;
+    top: 100%; /* Push it right below the nav bar */
+    left: 0;
+    flex-direction: column;
+    background-color: #f9f4e4; /* Match nav color */
+    background-image: url("../img/pattern-3.2.svg");
+    width: 100%; /* Full width */
+    border: 2px solid #3a5a40;
+    border-top: none; /* Merge with top bar */
+    border-radius: 0 0 26px 26px; /* Rounded bottom corners */
+    gap: 20px;
+    padding: 30px 0;
+    
+    /* Hide it initially */
+    clip-path: circle(0% at 100% 0%); /* Cool circular reveal effect */
+    -webkit-clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.5s ease-in-out;
+    pointer-events: none; /* Prevent clicking when hidden */
+  }
+
+  .nav-menu.active {
+    clip-path: circle(150% at 100% 0%); /* Reveal */
+    pointer-events: all;
+  }
+
+  /* Stack the internal items */
+  .social-buttons-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-button-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .insta-btn-nav, .whats-btn-nav {
+    width: 80%; /* Make buttons wide on mobile */
+    justify-content: center;
+  }
+  
+  .nav-button {
+    width: 80%;
+    height: 50px;
+  }
+}
+
+/* ========================================= */
+/* RESPONSIVE MEDIA QUERIES                  */
+/* ========================================= */
+
+/* General Image Protection */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- TABLET & SMALL LAPTOPS (Max 1024px) --- */
+@media (max-width: 1024px) {
+    .banner {
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 50px;
+        overflow: hidden; /* Prevent horizontal scroll from decorations */
+    }
+
+    .plate {
+        width: 80%;
+        top: 100px;
+    }
+
+    .rainbow-sides__left, 
+    .rainbow-sides__right {
+        opacity: 0.3; /* Fade decoration so text is readable */
+    }
+}
+
+/* --- MOBILE DEVICES (Max 768px) --- */
+@media (max-width: 768px) {
+
+    /* 1. Navigation */
+    .nav-section {
+      height: 80px;
+      background-color: #f9f4e4;
+      background-image: url("../img/pattern-3.2.svg");
+      border: 2px solid #3a5a40;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      margin: 15px 21px 0;
+      position: relative;
+      z-index: 100; /* High z-index to sit above page content */
+    }
+
+    .nav-menu {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+    }
+
+    .logo {
+      /* Absolute position centers it perfectly on desktop without margin hacks */
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .logo img {
+      height: 70px;
+      width: auto;
+    }
+
+    /* Ensure links are on top of the logo z-index if they overlap */
+    .social-buttons-nav, .nav-button-list {
+      position: relative; 
+      z-index: 3;
+    }
+
+    /* Hamburger is hidden on Desktop */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: #3a5a40;
+      border-radius: 2px;
+    }
+
+    /* 2. Banner Area */
+    .banner {
+        height: auto;
+        padding-top: 40px;
+    }
+
+    .banner-img {
+        display: flex;
+        position: relative;
+        width: 100%;           /* Changed from 800px */
+        max-width: 800px;      /* Added max-width limit */
+        height: 600px;
+        justify-content: center;
+        z-index: 10;
+    }
+
+    .logo-banner {
+        position: relative;
+        width: 100%;           /* Changed from 600px */
+        max-width: 600px;
+        height: auto;          /* Allow height to adjust */
+        z-index: 1;
+    }
+
+    .plate {
+        width: 110%;           /* Changed from 900px to percentage relative to container */
+        max-width: 900px;
+        height: auto;          /* Maintain aspect ratio */
+        position: absolute;
+        top: 170px;
+        left: 50%;             /* Center it */
+        transform: translateX(-50%); /* Center it */
+        z-index: 1;
+    }
+
+    .adesivo {
+        right: 10px;
+        top: -10px;
+        width: 60px;
+        height: 60px;
+    }
+
+    /* 3. Titles */
+    .flavors h2 {
+        font-size: 3rem;
+        line-height: 1.1;
+        padding: 0 10px;
+    }
+
+    .flavors h3 {
+        font-size: 1.2rem;
+        padding: 0 20px;
+    }
+
+    /* 4. Catalog */
+    .catalog-all-items {
+        padding: 20px;
+        gap: 40px;
+    }
+
+    /* Scale down items slightly if screen is very narrow */
+    .catalog-item {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* 5. iFood Section */
+    .ifood-section {
+        width: 90%;            /* Changed from 900px fixed */
+        max-width: 1100px;     /* Cap the width */
+        height: auto;          /* Allow it to grow vertically */
+        position: relative;
+        margin: 90px auto;
+        display: block;
+        z-index: 10;
+        padding-bottom: 20px;  /* Add breathing room */
+    }
+    
+    .ifood-content {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+        width: 100%;           /* Ensure it uses available space */
+        box-sizing: border-box; /* Include padding in width */
+        padding: 2rem;         /* Add internal spacing */
+        margin: 0 auto;
+    }
+
+    .ifood-text {
+    color: #000000;
+    margin-left: 0;        /* Removed fixed 10rem margin */
+    flex: 1;               /* Allow text to take available space */
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+    .ifood-text h2 {
+        font-size: 3rem;
+    }
+
+    .ifood-image img {
+        width: 100%;
+        height: 300px; /* Smaller height for mobile */
+        border-radius: 1.5rem;
+    }
+
+    /* Adjust the spying eagle */
+    .eagle-img {
+        left: 50%;
+        transform: translateX(-50%); /* Center it */
+        top: -60px;
+        z-index: 25; /* Bring in front of green wall */
+    }
+
+    @keyframes spyPeek {
+        0%, 100% { transform: translate(-50%, 100px); }
+        20%, 40% { transform: translate(-50%, 0); }
+    }
+
+    /* 6. Instagram Section */
+    .insta-header h2 {
+        font-size: 40px;
+        padding: 0 10px;
+    }
+    
+    .insta-tag {
+        font-size: 12px;
+    }
+
+    /* 7. Footer */
+    .footer-top {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 20px;
+    }
+
+    .footer-left, .footer-right {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    /* Hide separators on mobile */
+    .footer-separator {
+        display: none;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        font-size: 14px;
+        margin: 0 10px;
+    }
+
+    .footer-circle {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .spinning-text {
+        transform-origin: 150px 150px;
+    }
+}
+
+/* --- SMALL MOBILE (Max 480px) --- */
+@media (max-width: 480px) {
+    .insta-item {
+        width: 240px;
+        height: 320px;
+    }
+    
+    .button-1 {
+        width: 100%;
+        box-sizing: border-box;
+        margin-left: 0;
+    }
+    
+    .catalog-item {
+        transform: scale(0.95); /* Shrink catalog items slightly to fit */
+    }
+}
 
