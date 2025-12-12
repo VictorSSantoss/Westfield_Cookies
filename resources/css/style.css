@@ -1,3 +1,7 @@
+/* ========================================= */
+/* 1. FONT DEFINITIONS                       */
+/* ========================================= */
+
 @font-face {    
     font-family: "Westroon";
     src: url(../fonts/01_WESTROON/Westroon.woff2) format("woff2"),
@@ -15,8 +19,6 @@
     font-style: normal;
     font-display: swap;
 }
-
-
 
 @font-face {
     font-family: "Neue-Kabel-Extrabold";
@@ -73,15 +75,6 @@
 }
 
 @font-face {
-    font-family: "Fendesert-Script-Rough";
-    src: url(../fonts/03_FENDESERT/Fendesert-Script-Rough.woff2) format("woff2"),
-         url(../fonts/03_FENDESERT/Fendesert-Script-Rough.otf) format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: "Fendesert-Script-Stamp";
     src: url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.woff2) format("woff2"),
          url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.otf) format("opentype");
@@ -108,6 +101,9 @@
     font-display: swap;
 }
 
+/* ========================================= */
+/* 2. BASE STYLES AND VARIABLES              */
+/* ========================================= */
 
 body {
     font-family: "Westroon";
@@ -118,40 +114,31 @@ body {
     padding: 0;
 }
 
-/* Smooth movement to work without 'transition: transform' */
+/* Custom Properties for smooth animations */
 @property --tx { syntax: '<length-percentage>'; inherits: false; initial-value: -50%; }
 @property --ty { syntax: '<length-percentage>'; inherits: false; initial-value: -50%; }
 @property --scale { syntax: '<number>'; inherits: false; initial-value: 0.2; }
 @property --rot { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
 
-.thicket-color {
-    color: #3A5A40;
+/* Colors Utility Classes */
+.thicket-color { color: #3A5A40; }
+.vanilla-color { color: #E7E0C6; }
+.meadow-color { color: #70876A; }
+.amber-color { color: #FE6F1F; }
+.brooke-color { color: #6BC4A6; }
+.cloud-color { color: #F9F4E4; }
+
+/* General Image Protection */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.vanilla-color {
-    color: #E7E0C6;
-}
+/* ========================================= */
+/* 3. LAYOUT COMPONENTS                      */
+/* ========================================= */
 
-.meadow-color {
-    color: #70876A;
-}
-
-.amber-color {
-    color: #FE6F1F;
-}
-
-.brooke-color {
-    color: #6BC4A6;
-}
-
-.cloud-color {
-    color: #F9F4E4;
-}
-
-
-/* ------------------------------- */
-/* SCROLLING TICKER */
-/* ------------------------------- */
+/* --- Ticker --- */
 .ticker-link {
   text-decoration: none;
   color: inherit;
@@ -168,6 +155,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 9999;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
 }
 
 .ticker__track {
@@ -182,24 +171,6 @@ body {
   font-weight: bold;
 }
 
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* iOS smoothness */
-.ticker {
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-}
-
-
-/* Improve smoothness on iOS */
-.ticker {
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-}
-
 .ticker-icon {
   height: 24px;
   width: auto;
@@ -207,31 +178,53 @@ body {
   margin: 0 1rem;
 } 
 
-/* ------------------------------- */
-/* NAVEGATION BAR */
-/* ------------------------------- */
+/* --- Navigation Bar (Desktop Default) --- */
 .nav-section {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
   height: 80px;
+  padding: 0 20px;
+  margin: 15px auto 0;
+
   background-color: #f9f4e4;
   background-image: url("../img/pattern-3.2.svg");
   border: 2px solid #3a5a40;
   border-radius: 26px;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;   /* LEFT - CENTER - RIGHT layout */
-  padding: 0 25px;
-  margin: 15px 21px 0;
+
+  max-width: 1400px;
   position: relative;
-  z-index: 10;
+  z-index: 100;
 }
 
-/* LEFT SIDE BUTTONS */
-.social-buttons-nav {
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* CENTER */
+.nav-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* Left Side Buttons */
+.nav-buttons-left {
   display: flex;
   gap: 14px;
   align-items: center;
 }
+
+/* Right Side Buttons (Ensure Flex container and positioning) */
+.nav-buttons-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto; /* THIS pushes it fully right */
+}
+
 
 /* Instagram gradient label */
 .insta-btn-nav {
@@ -279,21 +272,31 @@ body {
   opacity: 0.9;
 }
 
-/* CENTER LOGO */
+/* Center Logo */
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 140px;
+  margin-right: 0; /* Removes the previous margin that prevented centering */
+  z-index: 101; /* New: Ensures logo is on top of other nav elements */
 }
 
 .logo img {
   height: 70px;
-  max-height: 70px;
   width: auto;
 }
 
-/* RIGHT SIDE BUTTON */
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-buttons {
+  display: flex;
+}
+
 .nav-button {
   font-family: "Fendesert-Sans-Rough";
   width: 90px;
@@ -313,31 +316,7 @@ body {
   color: #f9f4e4;
 }
 
-/* ------------------------------- */
-/* RESPONSIVE */
-/* ------------------------------- */
-@media (max-width: 768px) {
-  .nav-section {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
-    gap: 15px;
-  }
-
-  .social-buttons {
-    order: 1;
-  }
-
-  .logo {
-    order: 2;
-  }
-
-  .nav-button-list {
-    order: 3;
-  }
-}
-
-/* Logo Circle Animation */
+/* Floating Logo Circle Animation */
 .img-circle {
     background-color: #fe6f1f;
     border-radius: 100%;
@@ -348,13 +327,13 @@ body {
     margin-right: 5px;
     opacity: 0;
     z-index: 1000;
-    transform: translateX(-50px); /* Start off to the left */
+    transform: translateX(-50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .spinning-text {
     animation: spin 20s linear infinite;
-    transform-origin: 150px 150px; /* center of the SVG */
+    transform-origin: 150px 150px;
 }
 
 .img-circle.visible {
@@ -362,12 +341,7 @@ body {
     transform: translateX(0);
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* Banner */
+/* --- Banner Section --- */
 .banner {
     display: flex;
     justify-content: center;
@@ -409,7 +383,7 @@ body {
     z-index: 1;
 }
 
-/* --------------- Buttons --------------- */
+/* Primary Button */
 .button-1 {
     background-color: rgb(249, 244, 228);
     display: inline-block;
@@ -430,10 +404,7 @@ body {
     color: rgb(249, 244, 228);
 }
 
-/* --------------- Rainbow Sides and Pattern Deco --------------- */
-
-
-/* Initial draw animation (runs once on load) */
+/* Rainbow Decoration */
 .stroke-anim {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
@@ -441,13 +412,6 @@ body {
     will-change: stroke-dashoffset;
 }
 
-/* Keyframes */
-@keyframes rainbowDraw {
-    from { stroke-dashoffset: 1000; }
-    to { stroke-dashoffset: 0; }
-}
-
-/* Positioning */
 .rainbox-sides {
   position: absolute;
   top: 0;
@@ -473,7 +437,6 @@ body {
   right: -4.75em;
 }
 
-/* --------------- Pattern Decoration --------------- */
 .pattern-decor {
     position: absolute;
     display: block;
@@ -487,10 +450,7 @@ body {
     align-items: center;
 }
 
-
-/* ------------------------------- */
-/* CATALOG TITLE */
-/* ------------------------------- */
+/* --- Catalog Section --- */
 .flavors {
     display: grid;
     margin: 60px auto 30px;
@@ -501,8 +461,8 @@ body {
 
 .flavors h2 {
     font-family: "Westroon";
-    font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
+    font-weight: normal;
+    font-style: normal;
     font-size: 4rem;
     color: #3a5a40;
     text-align: center;
@@ -511,17 +471,14 @@ body {
 
 .flavors h3 {
     font-family: "Fendesert-Sans-Rough";
-    font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
+    font-weight: normal;
+    font-style: normal;
     font-size: 1.5rem;
     color: #3a5a40;
     text-align: center;
     margin-top: 0px;
 }
 
-/* ------------------------------- */
-/* CATALOG */
-/* ------------------------------- */
 .catalog-all-items {
     display: flex;
     justify-content: space-around;
@@ -535,9 +492,7 @@ body {
     margin: 0 auto;
 }
 
-/* ------------------------------- */
-/* CATALOG ITEMS */
-/* ------------------------------- */
+/* Catalog Cards */
 .catalog-item {
     position: relative;
     width: 320px;
@@ -549,13 +504,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px 15px;
+    padding: 8px;
     text-align: center;
     overflow: hidden;
     cursor: pointer;
     z-index: 1;
     transition: transform 0.3s ease;
-    padding: 8px;
 }
 
 .catalog-item:hover {
@@ -565,21 +519,14 @@ body {
 .catalog-item::before {
     content: '';
     position: absolute;
-    /* Dimensions for a horizontal oval */
     width: 280px;
     height: 150px;
-    
-    /* Position it behind the cookie */
     top: 270px; 
     left: 50%;
     transform: translateX(-50%);
-    
-    /* Shape and Color */
-    background-color: #6BC4A6; /* Light background color */
-    border-radius: 50%; /* Creates the oval shape */
-    
-    /* Stacking Context */
-    z-index: 5; /* Puts it behind the cookie (z-index: 10) but in front of the item background */
+    background-color: #6BC4A6;
+    border-radius: 50%;
+    z-index: 5;
 }
 
 .background-decor {
@@ -594,17 +541,16 @@ body {
     position: absolute;
     top: -30px;
     font-family: "Fendesert-script-regular";
-    font-weight: normal; /* Override browser default bold styling (User Agent Stylesheet). */
-    font-style: normal; /* Override browser default bold styling (User Agent Stylesheet). */
+    font-weight: normal;
+    font-style: normal;
     font-size: 4rem;
     color: #3A5A40;
     z-index: 20;
 }
 
-/* Weight (Below Title) */
 .item-weight {
     position: absolute;
-    top: 120px; /* Adjust based on your item-title height */
+    top: 120px;
     left: 50%;
     transform: translateX(-50%);
     font-family: "Fendesert-script-regular";
@@ -632,10 +578,9 @@ body {
     z-index: 10;
 }
 
-/* Short Description (Below Cookie) */
 .item-description {
     position: absolute;
-    bottom: -15px; /* Position above the bottom edge */
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
@@ -666,330 +611,11 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-.cookie-decor:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.cookie-decor:nth-child(3) {
-  animation-delay: 2s;
-}
-
-
-/* ---------------------------------------------------------- */
-/* GOLD STAR SPARKLE SYSTEM v8 — WITH PER-ITEM STAR POSITIONS */
-/* ---------------------------------------------------------- */
-
-/* STAR BASE POSITIONING */
-.catalog-item { position: relative; }
-
-.catalog-item .star {
-  position: absolute;
-  transform: translate(-50%,-50%);
-  z-index: 20;
-  width: var(--size);
-  height: var(--size);
-  pointer-events: none;
-  opacity: 0;
-}
-
-/* ⭐ NEW: Apply custom coordinates */
-.catalog-item .star-1 { top: var(--s1-top); left: var(--s1-left); }
-.catalog-item .star-2 { top: var(--s2-top); left: var(--s2-left); }
-.catalog-item .star-3 { top: var(--s3-top); left: var(--s3-left); }
-.catalog-item .star-4 { top: var(--s4-top); left: var(--s4-left); }
-.catalog-item .star-5 { top: var(--s5-top); left: var(--s5-left); }
-
-/* ---------------------------------- */
-/* STAR VISUALS (same as before)      */
-/* ---------------------------------- */
-:root {
-  --size: 160px;
-  --big-ray-thickness: 0.9px;
-  --big-ray-length: 15%;
-  --small-ray-thickness: 0.9px;
-  --small-ray-length: 10%;
-  --gold: 255, 215, 95;
-}
-
-.star { position: relative; }
-
-.ray {
-  position: absolute;
-  left: 50%; top: 50%;
-  transform-origin: center;
-  pointer-events: none;
-}
-
-.big-ray {
-  width: var(--big-ray-length);
-  height: var(--big-ray-thickness);
-  transform: translate(-50%, -50%);
-  border-radius: 100px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(var(--gold),0.05) 15%,
-    rgb(255, 230, 154) 50%,
-    rgba(var(--gold),0.05) 85%,
-    transparent 100%
-  );
-  filter: blur(1px);
-}
-.big-ray.vert { transform: translate(-50%, -50%) rotate(90deg); }
-
-.small-ray {
-  width: var(--small-ray-length);
-  height: var(--small-ray-thickness);
-  transform: translate(-50%, -50%) rotate(45deg);
-  border-radius: 50px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(var(--gold),0.05) 5%,
-    rgba(255, 230, 154,1) 50%,
-    rgba(var(--gold),0.05) 95%,
-    transparent 100%
-  );
-  filter: blur(0.6px);
-}
-.small-ray.b { transform: translate(-50%, -50%) rotate(-45deg); }
-
-.center {
-  position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 50%;
-  width: 0px; height: 0px;
-  background: radial-gradient(
-    circle,
-    rgba(255,230,120,1) 0%,
-    rgba(255,215,95,0.9) 25%,
-    rgba(255,215,95,0.65) 55%,
-    rgba(255,215,95,0.25) 75%,
-    transparent 100%
-  );
-  filter: blur(4px);
-  box-shadow:
-    0 0 12px rgba(255,215,95,1),
-    0 0 28px rgba(255,215,95,0.6),
-    0 0 55px rgba(255,215,95,0.2);
-}
-
-/* ---------------------------------- */
-/* SPARKLE ANIMATION                  */
-/* ---------------------------------- */
-@keyframes sparkleFade {
-  0%,100% { opacity: 0; transform: scale(1); }
-  50%     { opacity: 1; transform: scale(1.28); }
-}
-
-.catalog-item .star {
-  animation: sparkleFade var(--dur, 3s) ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
-}
-
-/* ---------------------------------- */
-/* RANDOMIZED TIMINGS (your previous) */
-/* ---------------------------------- */
-
-/* ITEM 1 — custom positions + random timing */
-.catalog-item:nth-child(1) {
-  --s1-top: 10%; --s1-left: 59%;
-  --s2-top: 55%; --s2-left: 45%;
-  --s3-top: 45%; --s3-left: 55%;
-  --s4-top: 26%; --s4-left: 30%;
-  --s5-top: 42%; --s5-left: -5%;
-}
-.catalog-item:nth-child(1) .star-1 { --dur: 2.10s; --delay: 0.23s; }
-.catalog-item:nth-child(1) .star-2 { --dur: 3.75s; --delay: 1.12s; }
-.catalog-item:nth-child(1) .star-3 { --dur: 2.92s; --delay: 0.68s; }
-.catalog-item:nth-child(1) .star-4 { --dur: 4.40s; --delay: 2.33s; }
-.catalog-item:nth-child(1) .star-5 { --dur: 3.05s; --delay: 1.05s; }
-
-/* ITEM 2 — example custom layout (you can change later) */
-.catalog-item:nth-child(2) {
-  --s1-top: 18%; --s1-left: 70%;
-  --s2-top: 48%; --s2-left: 85%;
-  --s3-top: 60%; --s3-left: 20%;
-  --s4-top: 32%; --s4-left: 40%;
-  --s5-top: 12%; --s5-left: 8%;
-}
-.catalog-item:nth-child(2) .star-1 { --dur: 2.67s; --delay: 0.85s; }
-.catalog-item:nth-child(2) .star-2 { --dur: 4.10s; --delay: 2.90s; }
-.catalog-item:nth-child(2) .star-3 { --dur: 3.00s; --delay: 0.10s; }
-.catalog-item:nth-child(2) .star-4 { --dur: 5.15s; --delay: 1.45s; }
-.catalog-item:nth-child(2) .star-5 { --dur: 3.40s; --delay: 3.20s; }
-
-/* ITEM 3 — positions for item 3 */
-.catalog-item:nth-child(3) {
-  --s1-top: 15%; --s1-left: 60%;
-  --s2-top: 55%; --s2-left: 75%;
-  --s3-top: 35%; --s3-left: 25%;
-  --s4-top: 25%; --s4-left: 42%;
-  --s5-top: 45%; --s5-left: 10%;
-}
-.catalog-item:nth-child(3) .star-1 { --dur: 1.95s; --delay: 0.50s; }
-.catalog-item:nth-child(3) .star-2 { --dur: 3.60s; --delay: 1.90s; }
-.catalog-item:nth-child(3) .star-3 { --dur: 2.30s; --delay: 0.02s; }
-.catalog-item:nth-child(3) .star-4 { --dur: 4.80s; --delay: 2.00s; }
-.catalog-item:nth-child(3) .star-5 { --dur: 3.25s; --delay: 1.60s; }
-
-/* ITEM 4 */
-.catalog-item:nth-child(4) {
-  --s1-top: 20%; --s1-left: 50%;
-  --s2-top: 33%; --s2-left: 78%;
-  --s3-top: 60%; --s3-left: 48%;
-  --s4-top: 38%; --s4-left: 20%;
-  --s5-top: 10%; --s5-left: 6%;
-}
-.catalog-item:nth-child(4) .star-1 { --dur: 2.40s; --delay: 0.30s; }
-.catalog-item:nth-child(4) .star-2 { --dur: 4.90s; --delay: 2.50s; }
-.catalog-item:nth-child(4) .star-3 { --dur: 3.10s; --delay: 0.90s; }
-.catalog-item:nth-child(4) .star-4 { --dur: 5.40s; --delay: 3.05s; }
-.catalog-item:nth-child(4) .star-5 { --dur: 3.70s; --delay: 1.20s; }
-
-/* ITEM 5 */
-.catalog-item:nth-child(5) {
-  --s1-top: 12%; --s1-left: 72%;
-  --s2-top: 40%; --s2-left: 90%;
-  --s3-top: 55%; --s3-left: 40%;
-  --s4-top: 20%; --s4-left: 25%;
-  --s5-top: 48%; --s5-left: 0%;
-}
-.catalog-item:nth-child(5) .star-1 { --dur: 2.05s; --delay: 0.95s; }
-.catalog-item:nth-child(5) .star-2 { --dur: 3.85s; --delay: 1.30s; }
-.catalog-item:nth-child(5) .star-3 { --dur: 2.75s; --delay: 0.15s; }
-.catalog-item:nth-child(5) .star-4 { --dur: 4.60s; --delay: 2.70s; }
-.catalog-item:nth-child(5) .star-5 { --dur: 3.00s; --delay: 1.80s; }
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .catalog-item .star {
-    animation: none !important;
-    opacity: 1 !important;
-  }
-}
-
-
+.cookie-decor:nth-child(2) { animation-delay: 1s; }
+.cookie-decor:nth-child(3) { animation-delay: 2s; }
 
 /* ------------------------------- */
-/* CATALOG HOVER ANIMATIONS */
-/* ------------------------------- */
-.catalog-item {
-  position: relative;
-}
-
-.cookie-wrapper {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 10;
-}
-
-.catalog-img {
-  position: absolute;
-  width: 110px;
-  opacity: 0;
-
-  /* transform variables */
-  --tx: -50%;
-  --ty: -50%;
-  --scale: 0.2;
-  --rot: 0deg;
-
-  /* base transform */
-  transform: translate(var(--tx), var(--ty)) 
-             scale(var(--scale))
-             rotate(var(--rot));
-
-  transition: opacity 0.6s ease, 
-              --tx 0.6s ease, 
-              --ty 0.6s ease, 
-              --scale 0.6s ease;
-              
-  z-index: -1;
-  offset-anchor: center;
-  offset-rotate: 0deg;
-  
-  /* Helps with performance */
-  will-change: --tx, --ty, --rot;
-}
-
-.img-1 {
-  width: 70px;
-}
-
-.img-2 {
-  width: 80px;
-}
-
-.img-3 {
-  width: 70px;
-}
-
-.catalog-img.img-1,
-.catalog-img.img-2,
-.catalog-img.img-3 {
-  position: relative;
-  z-index: 10;
-}
-
-/* HOVER POSITIONS */
-
-.catalog-item:hover .img-1 {
-  --tx: -60%;
-  --ty: -0%;
-  --scale: 1;
-}
-
-.catalog-item:hover .img-2 {
-  --tx: 105%;
-  --ty: -100%;
-  --scale: 1;
-}
-
-.catalog-item:hover .img-3 {
-  --tx: 60%;
-  --ty: 200%;
-  --scale: 1;
-}
-
-.catalog-item:hover .catalog-img {
-  opacity: 1;
-}
-
-/* FLOATING ANIMATION (img-1 & img-3) */
-.img-1,
-.img-3 {
-  animation: floatPath 3s ease-in-out infinite;
-  offset-path: path("M0 0 C 0 -10 0 -10 0 0");
-}
-
-@keyframes floatPath {
-  0%   { offset-distance: 0%; }
-  50%  { offset-distance: 100%; }
-  100% { offset-distance: 0%; }
-}
-
-/* SPIN ANIMATION (img-2) */
-.img-2 {
-  animation: spin-self 15s linear infinite;
-  /* Ensure offset-path doesn't interfere */
-  offset-path: none; 
-}
-
-@keyframes spin-self {
-  from { --rot: 0deg; }
-  to   { --rot: 360deg; }
-}
-/* ------------------------------- */
-/* END CATALOG ANIMATIONS */
-/* ------------------------------- */
-
-/* ------------------------------- */
-/* IFOOD SECTION */
+/* iFOOD SECTION */
 /* ------------------------------- */
 
 .ifood-section {
@@ -999,38 +625,25 @@ body {
     position: relative;
     margin: 90px auto;
     display: block;
-    
-    /* REMOVED: background, border, and border-radius from here */
-    /* REMOVED: overflow: hidden; (This allows the sticker to be seen when it pops out the top) */
-    
-    /* Establishes the stacking context for children */
     z-index: 10; 
 }
 
-/* NEW: This creates the "Green Wall" layer */
+/* Green Wall Background */
 .ifood-section::before {
     content: "";
     position: absolute;
-    inset: 0; /* Stretches to fill the parent */
-    
-    /* MOVED STYLES: The visual box is now here */
+    inset: 0;
     background-color: #6bc4a6;
     border: #70876a 4px solid;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 3rem;
-    
-    /* LAYER POSITION: Above the sticker (5), but below the content (20) */
     z-index: 8; 
 }
 
-/* Layout: text left, image right */
 .ifood-content {
     position: relative;
-    /* LAYER POSITION: Topmost */
     z-index: 20; 
-    
-    /* ... keep your existing flex styles ... */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1045,56 +658,9 @@ body {
     left: 70px;
     width: 90px;
     height: auto;
-    
-    /* LAYER POSITION: Bottom (Behind the ::before background) */
-    z-index: 5; 
-    
-    /* SPY ANIMATION */
-    /* spyPeek: name of the animation
-       6s: total loop time (hidden + peeking time)
-       infinite: repeats forever
-       ease-in-out: smooth acceleration
-    */
+    z-index: 5; /* Behind the ::before background */
     animation: spyPeek 4s ease-in-out infinite;
-    
-    /* Start position (Hidden behind the wall) */
     transform: translateY(150px);
-}
-
-
-/* .AGUIA-ADESIVO ANIMATIONS */
-
-@keyframes spyPeek {
-    /* PHASE 1: Hiding (Wait at the bottom) */
-    0%, 10% {
-        transform: translateY(150px) rotate(0deg);
-    }
-
-    /* PHASE 2: Pop Up (Peek!) */
-    15% {
-        transform: translateY(0px) rotate(-1deg); /* Slight tilt left */
-    }
-
-    /* PHASE 3: Spying (Look around slightly) */
-    25% {
-        transform: translateY(0px) rotate(1deg); /* Tilt right */
-    }
-    35% {
-        transform: translateY(0px) rotate(-2deg); /* Tilt left again */
-    }
-    40% {
-        transform: translateY(0px) rotate(0deg); /* Back to center */
-    }
-
-    /* PHASE 4: Hide Quickly (Run away!) */
-    45% {
-        transform: translateY(150px) rotate(0deg);
-    }
-
-    /* PHASE 5: Stay Hidden (Wait for next loop) */
-    100% {
-        transform: translateY(150px);
-    }
 }
 
 .ifood-text {
@@ -1120,25 +686,12 @@ body {
   font-style: normal;
 }
 
-/* Image on the right */
 .ifood-image img {
   position: relative;
   width: 400px;
   height: 600px;
   object-fit: cover;
   border-radius: 2.7rem;
-}
-
-/* Responsive: stack on mobile */
-@media (max-width: 768px) {
-  .ifood-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .ifood-image img {
-    width: 80%;
-  }
 }
 
 /* ------------------------------- */
@@ -1154,7 +707,6 @@ body {
   z-index: 5;
 }
 
-/* Ensure the link takes up the full size of the container */
 .insta-item a {
   display: block;
   width: 100%;
@@ -1162,7 +714,6 @@ body {
   text-decoration: none;
 }
 
-/* TOP TEXT */
 .insta-tag {
   text-transform: uppercase;
   display: inline-block;
@@ -1188,7 +739,6 @@ body {
   margin: 10px 0 25px;
 }
 
-/* SOCIAL BUTTONS */
 .insta-social-buttons {
   display: flex;
   gap: 16px;
@@ -1200,13 +750,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg,
-      #FFD600,
-      #FF7A00,
-      #FF0069,
-      #D300C5,
-      #7638FA
-  );
+  background: linear-gradient(135deg, #FFD600, #FF7A00, #FF0069, #D300C5, #7638FA);
   color: #F9F4E4;
   padding: 12px 24px;
   border-radius: 50px;
@@ -1240,8 +784,7 @@ body {
   opacity: .9;
 }
 
-
-/* FEED GRID */
+/* Feed Grid */
 .insta-feed {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1256,12 +799,9 @@ body {
   margin-top: 60px;
 }
 
-/* Track that scrolls */
 .insta-track {
   display: flex;
   gap: 24px;
-  /* Start the animation at the end position (-100% of the original track width) 
-     and move to 0 to simulate a right scroll. */
   animation: instaScrollRight 56s linear infinite; 
 }
 
@@ -1269,7 +809,6 @@ body {
   animation-play-state: paused;
 }
 
-/* Fix item size (IMPORTANT!) */
 .insta-item {
   width: 300px;
   height: 400px;
@@ -1279,11 +818,10 @@ body {
   overflow: hidden;
 }
 
-/* Make image cover the box without stretching */
 .insta-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* <-- ensures perfect crop */
+  object-fit: cover;
   display: block;
   transition: transform .4s ease;
 }
@@ -1292,18 +830,11 @@ body {
   transform: scale(1.05);
 }
 
-/* Label on top of image */
 .insta-label {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: linear-gradient(135deg,
-      #FFD600,
-      #FF7A00,
-      #FF0069,
-      #D300C5,
-      #7638FA
-  );
+  background: linear-gradient(135deg, #FFD600, #FF7A00, #FF0069, #D300C5, #7638FA);
   color: #F9F4E4;
   padding: 6px 12px;
   border-radius: 14px;
@@ -1311,17 +842,6 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-
-/* Animation (moves to the right) */
-@keyframes instaScrollRight {
-  /* Start by positioning the track 100% to the left, 
-     so the duplicate content is visible first */
-  from { transform: translateX(-100%); }
-  /* End by moving the track back to its original position, 
-     making the duplicate set slide off and the original set reappear */
-  to   { transform: translateX(0); }
 }
 
 /* ------------------------------- */
@@ -1337,16 +857,11 @@ body {
   overflow: hidden;
 }
 
-/* Fade In Entrance */
 .fade-in-footer {
   animation: fadeInFooter 1s ease forwards;
   opacity: 0;
 }
-@keyframes fadeInFooter {
-  to { opacity: 1; }
-}
 
-/* TOP SECTION */
 .footer-top {
   display: flex;
   align-items: center;
@@ -1354,13 +869,11 @@ body {
   margin-bottom: -50px;
 }
 
-/* LEFT SIDE WITH ICONS */
 .footer-left {
   margin-left: 8em;
   gap: 12px;
 }
 
-/* LEFT LINKS */
 .footer-link {
   color: #E7E0C6;
   text-decoration: none;
@@ -1372,7 +885,6 @@ body {
   margin: 0 10px;
 }
 
-/* Animated Underline */
 .underline-anim::after {
   content: "";
   position: absolute;
@@ -1387,7 +899,6 @@ body {
   width: 100%;
 }
 
-/* CENTER CIRCLE */
 .footer-animation-wrapper {
   position: relative;
   padding: 20px;
@@ -1400,23 +911,11 @@ body {
   border-radius: 50%;
 }
 
-/* Responsive Logo */
 .footer-logo {
   width: 50%;
   height: 50%;
 }
 
-/* Spinning Circle Text */
-.spinning-text {
-  animation: spin 22s linear infinite;
-  transform-origin: 150px 150px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
-}
-
-/* RIGHT SIDE WITH ICONS */
 .footer-right {
   margin-right: 8em;
   gap: 12px;
@@ -1430,7 +929,6 @@ body {
   font-size: 18px;
 }
 
-/* Icon Animation */
 .icon-anim img {
   position: relative;
   top: 0.40em;
@@ -1444,7 +942,6 @@ body {
   filter: drop-shadow(0 0 6px #e7cec6);
 }
 
-/* WAVE DIVIDER */
 .footer-divider {
   width: 100%;
   height: 10em;
@@ -1455,7 +952,6 @@ body {
   margin: 25px 0;
 }
 
-/* BOTTOM SECTION */
 .footer-bottom {
   font-family: "Fendesert-Sans-Rough";
   font-weight: normal;
@@ -1467,23 +963,6 @@ body {
   font-size: 17px;
 }
 
-/* ------------------------------- */
-/* RESPONSIVE */
-/* ------------------------------- */
-@media (max-width: 850px) {
-  .footer-top {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  } 
-}
-
-/* Author */
 .footer-author-box {
   font-family: "Fendesert-Sans-Rough";
   font-weight: normal;
@@ -1529,296 +1008,398 @@ body {
   white-space: nowrap;
 }
 
-/* =============================== */
-/* RESPONSIVE NAV (Mobile)         */
-/* =============================== */
+/* ========================================= */
+/* ANIMATION KEYFRAMES                    */
+/* ========================================= */
 
-@media (max-width: 900px) { /* Trigger sooner (tablet/mobile) */
-  
-  .nav-section {
-    justify-content: space-between; /* Spread Logo and Hamburger */
-  }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
-  /* Reset Logo Position for Mobile */
-  .logo {
-    position: static;
-    transform: none;
-    margin: 0;
-  }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); } /* Clockwise for text */
+}
 
-  .hamburger {
-    display: block; /* Show hamburger */
-  }
+@keyframes rainbowDraw {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+}
 
-  /* Hamburger Animation when active */
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
 
-  /* The Dropdown Menu */
-  .nav-menu {
-    position: absolute;
-    top: 100%; /* Push it right below the nav bar */
-    left: 0;
-    flex-direction: column;
-    background-color: #f9f4e4; /* Match nav color */
-    background-image: url("../img/pattern-3.2.svg");
-    width: 100%; /* Full width */
-    border: 2px solid #3a5a40;
-    border-top: none; /* Merge with top bar */
-    border-radius: 0 0 26px 26px; /* Rounded bottom corners */
-    gap: 20px;
-    padding: 30px 0;
-    
-    /* Hide it initially */
-    clip-path: circle(0% at 100% 0%); /* Cool circular reveal effect */
-    -webkit-clip-path: circle(0% at 100% 0%);
-    transition: clip-path 0.5s ease-in-out;
-    pointer-events: none; /* Prevent clicking when hidden */
-  }
+@keyframes sparkleFade {
+  0%,100% { opacity: 0; transform: scale(1); }
+  50%     { opacity: 1; transform: scale(1.28); }
+}
 
-  .nav-menu.active {
-    clip-path: circle(150% at 100% 0%); /* Reveal */
-    pointer-events: all;
-  }
+@keyframes floatPath {
+  0%   { offset-distance: 0%; }
+  50%  { offset-distance: 100%; }
+  100% { offset-distance: 0%; }
+}
 
-  /* Stack the internal items */
-  .social-buttons-nav {
-    flex-direction: column;
-    width: 100%;
-  }
+@keyframes spin-self {
+  from { --rot: 0deg; }
+  to   { --rot: 360deg; }
+}
 
-  .nav-button-list {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .insta-btn-nav, .whats-btn-nav {
-    width: 80%; /* Make buttons wide on mobile */
-    justify-content: center;
-  }
-  
-  .nav-button {
-    width: 80%;
-    height: 50px;
-  }
+@keyframes instaScrollRight {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes fadeInFooter {
+  to { opacity: 1; }
+}
+
+@keyframes spyPeek {
+    0%, 10% { transform: translateY(150px) rotate(0deg); }
+    15% { transform: translateY(0px) rotate(-1deg); }
+    25% { transform: translateY(0px) rotate(1deg); }
+    35% { transform: translateY(0px) rotate(-2deg); }
+    40% { transform: translateY(0px) rotate(0deg); }
+    45% { transform: translateY(150px) rotate(0deg); }
+    100% { transform: translateY(150px); }
 }
 
 /* ========================================= */
-/* RESPONSIVE MEDIA QUERIES                  */
+/* GOLD STAR SPARKLE SYSTEM               */
 /* ========================================= */
 
-/* General Image Protection */
-img {
-    max-width: 100%;
-    height: auto;
+:root {
+  --size: 160px;
+  --big-ray-thickness: 0.9px;
+  --big-ray-length: 15%;
+  --small-ray-thickness: 0.9px;
+  --small-ray-length: 10%;
+  --gold: 255, 215, 95;
 }
 
-/* --- TABLET & SMALL LAPTOPS (Max 1024px) --- */
+.catalog-item .star {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  z-index: 20;
+  width: var(--size);
+  height: var(--size);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Coordinates */
+.catalog-item .star-1 { top: var(--s1-top); left: var(--s1-left); }
+.catalog-item .star-2 { top: var(--s2-top); left: var(--s2-left); }
+.catalog-item .star-3 { top: var(--s3-top); left: var(--s3-left); }
+.catalog-item .star-4 { top: var(--s4-top); left: var(--s4-left); }
+.catalog-item .star-5 { top: var(--s5-top); left: var(--s5-left); }
+
+.star { position: relative; }
+.ray { position: absolute; left: 50%; top: 50%; transform-origin: center; pointer-events: none; }
+
+.big-ray {
+  width: var(--big-ray-length);
+  height: var(--big-ray-thickness);
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  background: linear-gradient(to right, transparent 0%, rgba(var(--gold),0.05) 15%, rgb(255, 230, 154) 50%, rgba(var(--gold),0.05) 85%, transparent 100%);
+  filter: blur(1px);
+}
+.big-ray.vert { transform: translate(-50%, -50%) rotate(90deg); }
+
+.small-ray {
+  width: var(--small-ray-length);
+  height: var(--small-ray-thickness);
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 50px;
+  background: linear-gradient(to right, transparent 0%, rgba(var(--gold),0.05) 5%, rgba(255, 230, 154,1) 50%, rgba(var(--gold),0.05) 95%, transparent 100%);
+  filter: blur(0.6px);
+}
+.small-ray.b { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.center {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  border-radius: 50%; width: 0px; height: 0px;
+  background: radial-gradient(circle, rgba(255,230,120,1) 0%, rgba(255,215,95,0.9) 25%, rgba(255,215,95,0.65) 55%, rgba(255,215,95,0.25) 75%, transparent 100%);
+  filter: blur(4px);
+  box-shadow: 0 0 12px rgba(255,215,95,1), 0 0 28px rgba(255,215,95,0.6), 0 0 55px rgba(255,215,95,0.2);
+}
+
+.catalog-item .star {
+  animation: sparkleFade var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Star positions per item (Abbreviated for length, logic remains) */
+.catalog-item:nth-child(1) { --s1-top: 10%; --s1-left: 59%; --s2-top: 55%; --s2-left: 45%; --s3-top: 45%; --s3-left: 55%; --s4-top: 26%; --s4-left: 30%; --s5-top: 42%; --s5-left: -5%; }
+.catalog-item:nth-child(1) .star-1 { --dur: 2.10s; --delay: 0.23s; }
+.catalog-item:nth-child(1) .star-2 { --dur: 3.75s; --delay: 1.12s; }
+.catalog-item:nth-child(1) .star-3 { --dur: 2.92s; --delay: 0.68s; }
+.catalog-item:nth-child(1) .star-4 { --dur: 4.40s; --delay: 2.33s; }
+.catalog-item:nth-child(1) .star-5 { --dur: 3.05s; --delay: 1.05s; }
+
+.catalog-item:nth-child(2) { --s1-top: 18%; --s1-left: 70%; --s2-top: 48%; --s2-left: 85%; --s3-top: 60%; --s3-left: 20%; --s4-top: 32%; --s4-left: 40%; --s5-top: 12%; --s5-left: 8%; }
+.catalog-item:nth-child(2) .star-1 { --dur: 2.67s; --delay: 0.85s; }
+.catalog-item:nth-child(2) .star-2 { --dur: 4.10s; --delay: 2.90s; }
+.catalog-item:nth-child(2) .star-3 { --dur: 3.00s; --delay: 0.10s; }
+.catalog-item:nth-child(2) .star-4 { --dur: 5.15s; --delay: 1.45s; }
+.catalog-item:nth-child(2) .star-5 { --dur: 3.40s; --delay: 3.20s; }
+
+.catalog-item:nth-child(3) { --s1-top: 15%; --s1-left: 60%; --s2-top: 55%; --s2-left: 75%; --s3-top: 35%; --s3-left: 25%; --s4-top: 25%; --s4-left: 42%; --s5-top: 45%; --s5-left: 10%; }
+.catalog-item:nth-child(3) .star-1 { --dur: 1.95s; --delay: 0.50s; }
+.catalog-item:nth-child(3) .star-2 { --dur: 3.60s; --delay: 1.90s; }
+.catalog-item:nth-child(3) .star-3 { --dur: 2.30s; --delay: 0.02s; }
+.catalog-item:nth-child(3) .star-4 { --dur: 4.80s; --delay: 2.00s; }
+.catalog-item:nth-child(3) .star-5 { --dur: 3.25s; --delay: 1.60s; }
+
+.catalog-item:nth-child(4) { --s1-top: 20%; --s1-left: 50%; --s2-top: 33%; --s2-left: 78%; --s3-top: 60%; --s3-left: 48%; --s4-top: 38%; --s4-left: 20%; --s5-top: 10%; --s5-left: 6%; }
+.catalog-item:nth-child(4) .star-1 { --dur: 2.40s; --delay: 0.30s; }
+.catalog-item:nth-child(4) .star-2 { --dur: 4.90s; --delay: 2.50s; }
+.catalog-item:nth-child(4) .star-3 { --dur: 3.10s; --delay: 0.90s; }
+.catalog-item:nth-child(4) .star-4 { --dur: 5.40s; --delay: 3.05s; }
+.catalog-item:nth-child(4) .star-5 { --dur: 3.70s; --delay: 1.20s; }
+
+.catalog-item:nth-child(5) { --s1-top: 12%; --s1-left: 72%; --s2-top: 40%; --s2-left: 90%; --s3-top: 55%; --s3-left: 40%; --s4-top: 20%; --s4-left: 25%; --s5-top: 48%; --s5-left: 0%; }
+.catalog-item:nth-child(5) .star-1 { --dur: 2.05s; --delay: 0.95s; }
+.catalog-item:nth-child(5) .star-2 { --dur: 3.85s; --delay: 1.30s; }
+.catalog-item:nth-child(5) .star-3 { --dur: 2.75s; --delay: 0.15s; }
+.catalog-item:nth-child(5) .star-4 { --dur: 4.60s; --delay: 2.70s; }
+.catalog-item:nth-child(5) .star-5 { --dur: 3.00s; --delay: 1.80s; }
+
+/* Catalog Hover Effects */
+.cookie-wrapper {
+  position: relative;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.catalog-img {
+  position: absolute;
+  width: 110px;
+  opacity: 0;
+  --tx: -50%; --ty: -50%; --scale: 0.2; --rot: 0deg;
+  transform: translate(var(--tx), var(--ty)) scale(var(--scale)) rotate(var(--rot));
+  transition: opacity 0.6s ease, --tx 0.6s ease, --ty 0.6s ease, --scale 0.6s ease;
+  z-index: -1;
+  offset-anchor: center;
+  offset-rotate: 0deg;
+  will-change: --tx, --ty, --rot;
+}
+
+.img-1 { width: 70px; }
+.img-2 { width: 80px; }
+.img-3 { width: 70px; }
+
+.catalog-img.img-1, .catalog-img.img-2, .catalog-img.img-3 { position: relative; z-index: 10; }
+
+.catalog-item:hover .img-1 { --tx: -60%; --ty: -0%; --scale: 1; }
+.catalog-item:hover .img-2 { --tx: 105%; --ty: -100%; --scale: 1; }
+.catalog-item:hover .img-3 { --tx: 60%; --ty: 200%; --scale: 1; }
+.catalog-item:hover .catalog-img { opacity: 1; }
+
+.img-1, .img-3 { animation: floatPath 3s ease-in-out infinite; offset-path: path("M0 0 C 0 -10 0 -10 0 0"); }
+.img-2 { animation: spin-self 15s linear infinite; offset-path: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-item .star { animation: none !important; opacity: 1 !important; }
+}
+
+
+/* ========================================= */
+/* RESPONSIVE MEDIA QUERIES               */
+/* ========================================= */
+
+/* --- TABLET & MOBILE NAVIGATION (Max 1024px) --- */
+/* This handles the transition from Desktop Menu to Hamburger Menu */
 @media (max-width: 1024px) {
+    
+    /* 1. Navigation Container */
+    .nav-section {
+        justify-content: space-between; /* Keep Logo Left/Center and Hamburger Right */
+        padding: 0 20px;
+    }
+
+    /* 2. Logo Positioning */
+    .logo {
+        position: static;
+        transform: none;
+        margin: 0;
+        z-index: 20;
+    }
+
+    /* 3. Hamburger Menu Icon */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        z-index: 2000;
+    }
+
+    .hamburger .bar {
+        width: 28px;
+        height: 3px;
+        background-color: #3a5a40;
+        border-radius: 4px;
+        transition: 0.3s ease;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* 4. The Dropdown Menu (Hidden by default) */
+    .nav-menu {
+        position: absolute;
+        top: 100%; /* Push it right below the nav bar */
+        left: 0;
+        width: 100%;
+        background-color: #f9f4e4; 
+        background-image: url("../img/pattern-3.2.svg");
+        border: 2px solid #3a5a40;
+        border-top: none; 
+        border-radius: 0 0 26px 26px; 
+        
+        /* Flexbox for vertical layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 0;
+        
+        /* Animation: Clip Path Hiding */
+        clip-path: circle(0% at 100% 0%); 
+        -webkit-clip-path: circle(0% at 100% 0%);
+        transition: clip-path 0.5s ease-in-out;
+        pointer-events: none; /* Can't click when hidden */
+        z-index: 1500;
+    }
+
+    .hamburger, 
+    .nav-menu {
+      display: none !important; /* Use !important to override any defaults */
+    }
+
+    /* Show Menu when Active */
+    .nav-menu.active {
+        clip-path: circle(150% at 100% 0%); 
+        pointer-events: all;
+    }
+
+    /* Make sure the buttons INSIDE the menu are visible */
+    .nav-buttons-left,
+    .nav-buttons-right {
+      display: flex; 
+      align-items: center;
+      gap: 14px;
+      z-index: 100;
+    }
+    
+    .insta-btn-nav, .whats-btn-nav, .nav-button {
+        width: 80%; /* Make buttons wide on mobile */
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .nav-button { 
+        height: 50px; 
+        width: 90px;
+    }
+    
+    /* General Tablet Adjustments */
     .banner {
         height: auto;
         padding-top: 100px;
         padding-bottom: 50px;
-        overflow: hidden; /* Prevent horizontal scroll from decorations */
+        overflow: hidden;
     }
-
-    .plate {
-        width: 80%;
-        top: 100px;
-    }
-
-    .rainbow-sides__left, 
-    .rainbow-sides__right {
-        opacity: 0.3; /* Fade decoration so text is readable */
-    }
+    .plate { width: 80%; top: 100px; }
 }
 
-/* --- MOBILE DEVICES (Max 768px) --- */
+/* --- SMALLER MOBILE ADJUSTMENTS (Max 768px) --- */
 @media (max-width: 768px) {
-
-    /* 1. Navigation */
-    .nav-section {
-      height: 80px;
-      background-color: #f9f4e4;
-      background-image: url("../img/pattern-3.2.svg");
-      border: 2px solid #3a5a40;
-      border-radius: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 25px;
-      margin: 15px 21px 0;
-      position: relative;
-      z-index: 100; /* High z-index to sit above page content */
-    }
-
-    .nav-menu {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      align-items: center;
-    }
-
-    .logo {
-      /* Absolute position centers it perfectly on desktop without margin hacks */
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-
-    .logo img {
-      height: 70px;
-      width: auto;
-    }
-
-    /* Ensure links are on top of the logo z-index if they overlap */
-    .social-buttons-nav, .nav-button-list {
-      position: relative; 
-      z-index: 3;
-    }
-
-    /* Hamburger is hidden on Desktop */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      z-index: 5;
-    }
-
-    .bar {
-      display: block;
-      width: 25px;
-      height: 3px;
-      margin: 5px auto;
-      -webkit-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
-      background-color: #3a5a40;
-      border-radius: 2px;
-    }
-
-    /* 2. Banner Area */
+    /* Adjust Banner and Content for smaller screens */
     .banner {
         height: auto;
         padding-top: 40px;
     }
 
     .banner-img {
-        display: flex;
-        position: relative;
-        width: 100%;           /* Changed from 800px */
-        max-width: 800px;      /* Added max-width limit */
-        height: 600px;
-        justify-content: center;
-        z-index: 10;
-    }
-
-    .logo-banner {
-        position: relative;
-        width: 100%;           /* Changed from 600px */
-        max-width: 600px;
-        height: auto;          /* Allow height to adjust */
-        z-index: 1;
-    }
-
-    .plate {
-        width: 110%;           /* Changed from 900px to percentage relative to container */
-        max-width: 900px;
-        height: auto;          /* Maintain aspect ratio */
-        position: absolute;
-        top: 170px;
-        left: 50%;             /* Center it */
-        transform: translateX(-50%); /* Center it */
-        z-index: 1;
-    }
-
-    .adesivo {
-        right: 10px;
-        top: -10px;
-        width: 60px;
-        height: 60px;
-    }
-
-    /* 3. Titles */
-    .flavors h2 {
-        font-size: 3rem;
-        line-height: 1.1;
-        padding: 0 10px;
-    }
-
-    .flavors h3 {
-        font-size: 1.2rem;
-        padding: 0 20px;
-    }
-
-    /* 4. Catalog */
-    .catalog-all-items {
-        padding: 20px;
-        gap: 40px;
-    }
-
-    /* Scale down items slightly if screen is very narrow */
-    .catalog-item {
         width: 100%;
-        max-width: 320px;
+        max-width: 800px;
+        height: 600px;
+    }
+    
+    .logo-banner { width: 100%; max-width: 600px; height: auto; }
+    
+    .plate {
+        width: 110%;
+        max-width: 900px;
+        height: auto;
+        top: 170px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    /* 5. iFood Section */
+    .adesivo { right: 10px; top: -10px; width: 60px; height: 60px; }
+
+    .rainbow-sides__left {
+      width: 12em;
+      position: absolute;
+      bottom: 21.28em;
+      left: 0px;
+      transform: scale(-1);
+
+    }
+
+    .rainbow-sides__right {
+      width: 12em;
+      position: absolute;
+      top: 0;
+      right: 0px;
+    }
+
+    /* Titles */
+    .flavors h2 { font-size: 3rem; line-height: 1.1; padding: 0 10px; }
+    .flavors h3 { font-size: 1.2rem; padding: 0 20px; }
+
+    /* Catalog */
+    .catalog-all-items { padding: 20px; gap: 40px; }
+    .catalog-item { width: 100%; max-width: 320px; }
+
+    /* iFood Section */
     .ifood-section {
-        width: 90%;            /* Changed from 900px fixed */
-        max-width: 1100px;     /* Cap the width */
-        height: auto;          /* Allow it to grow vertically */
-        position: relative;
+        width: 90%;
+        max-width: 1100px;
+        height: auto;
         margin: 90px auto;
-        display: block;
-        z-index: 10;
-        padding-bottom: 20px;  /* Add breathing room */
+        padding-bottom: 20px;
     }
     
     .ifood-content {
-        position: relative;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 3rem;
-        width: 100%;           /* Ensure it uses available space */
-        box-sizing: border-box; /* Include padding in width */
-        padding: 2rem;         /* Add internal spacing */
-        margin: 0 auto;
-    }
-
-    .ifood-text {
-    color: #000000;
-    margin-left: 0;        /* Removed fixed 10rem margin */
-    flex: 1;               /* Allow text to take available space */
-    font-weight: normal; 
-    font-style: normal; 
-}
-
-    .ifood-text h2 {
-        font-size: 3rem;
-    }
-
-    .ifood-image img {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
         width: 100%;
-        height: 300px; /* Smaller height for mobile */
-        border-radius: 1.5rem;
+        box-sizing: border-box;
     }
 
-    /* Adjust the spying eagle */
+    .ifood-text { margin-left: 0; flex: 1; }
+    .ifood-text h2 { font-size: 3rem; }
+    .ifood-image img { width: 100%; height: 300px; border-radius: 1.5rem; }
+
+    /* Eagle Fix: Behind the green wall on mobile */
     .eagle-img {
         left: 50%;
-        transform: translateX(-50%); /* Center it */
+        transform: translateX(-50%);
         top: -60px;
-        z-index: 25; /* Bring in front of green wall */
+        z-index: 5; 
     }
 
     @keyframes spyPeek {
@@ -1826,68 +1407,18 @@ img {
         20%, 40% { transform: translate(-50%, 0); }
     }
 
-    /* 6. Instagram Section */
-    .insta-header h2 {
-        font-size: 40px;
-        padding: 0 10px;
-    }
-    
-    .insta-tag {
-        font-size: 12px;
-    }
-
-    /* 7. Footer */
-    .footer-top {
-        flex-direction: column;
-        gap: 30px;
-        margin-bottom: 20px;
-    }
-
-    .footer-left, .footer-right {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    /* Hide separators on mobile */
-    .footer-separator {
-        display: none;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        font-size: 14px;
-        margin: 0 10px;
-    }
-
-    .footer-circle {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .spinning-text {
-        transform-origin: 150px 150px;
-    }
+    /* Footer adjustments */
+    .footer-top { flex-direction: column; gap: 30px; margin-bottom: 20px; }
+    .footer-left, .footer-right { margin: 0; flex-direction: column; gap: 15px; text-align: center; }
+    .footer-separator { display: none; }
+    .footer-bottom { flex-direction: column; gap: 20px; font-size: 14px; margin: 0 10px; }
+    .footer-circle { width: 180px; height: 180px; }
+    .spinning-text { transform-origin: 150px 150px; }
 }
 
-/* --- SMALL MOBILE (Max 480px) --- */
+/* --- TINY SCREENS (Max 480px) --- */
 @media (max-width: 480px) {
-    .insta-item {
-        width: 240px;
-        height: 320px;
-    }
-    
-    .button-1 {
-        width: 100%;
-        box-sizing: border-box;
-        margin-left: 0;
-    }
-    
-    .catalog-item {
-        transform: scale(0.95); /* Shrink catalog items slightly to fit */
-    }
+    .insta-item { width: 240px; height: 320px; }
+    .button-1 { width: 100%; box-sizing: border-box; margin-left: 0; }
+    .catalog-item { transform: scale(0.95); }
 }
-

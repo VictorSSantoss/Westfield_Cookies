@@ -227,3 +227,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500); // matches your CSS draw time
 
 });
+
