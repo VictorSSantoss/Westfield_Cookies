@@ -36,12 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
         navMenu.classList.toggle("active");
     });
 
-    // Optional: Close menu when a link is clicked
+    // Close menu when a link is clicked
     document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
     }));
 });
+
 
 // Array of words to display one by one
 const words = ["Chewy", "Crunchy", "Delicious"];

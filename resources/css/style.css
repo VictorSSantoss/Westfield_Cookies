@@ -105,13 +105,20 @@
 /* 2. BASE STYLES AND VARIABLES              */
 /* ========================================= */
 
+/* 1. Structure & Reset */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Visuals & Typography */
 body {
     font-family: "Westroon";
     background-image: url("../img/pattern-5.5-sem-fundo-4000px-4000px.svg");
     background-size: contain;
     background-repeat: repeat;
-    margin: 0;
-    padding: 0;
 }
 
 /* Custom Properties for smooth animations */
@@ -180,22 +187,29 @@ img {
 
 /* --- Navigation Bar (Desktop Default) --- */
 .nav-section {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-
+  max-width: 1200px; /* Max size for default screen */
   height: 80px;
-  padding: 0 20px;
-  margin: 15px auto 0;
-
   background-color: #f9f4e4;
   background-image: url("../img/pattern-3.2.svg");
   border: 2px solid #3a5a40;
   border-radius: 26px;
-
-  max-width: 1400px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* LEFT - CENTER - RIGHT layout */
+  padding: 0 25px;
+  /* Updated margin: Increased top margin (25px) for space after ticker, 
+     'auto' for center alignment (creates equal side spacing), 
+     and 15px bottom margin for separation from main content. */
+  margin: 15px 5px;
   position: relative;
-  z-index: 100;
+  z-index: 100; 
+}
+
+/* Hide the mobile menu elements on desktop screens. */
+.hamburger, 
+.nav-menu {
+  display: none;
 }
 
 /* LEFT */
@@ -215,16 +229,16 @@ img {
   display: flex;
   gap: 14px;
   align-items: center;
+  z-index: 100;
 }
 
-/* Right Side Buttons (Ensure Flex container and positioning) */
+/* Right Side Buttons */
 .nav-buttons-right {
   display: flex;
-  align-items: center;
   gap: 14px;
-  margin-left: auto; /* THIS pushes it fully right */
+  align-items: center;
+  z-index: 100;
 }
-
 
 /* Instagram gradient label */
 .insta-btn-nav {
@@ -277,8 +291,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0; /* Removes the previous margin that prevented centering */
-  z-index: 101; /* New: Ensures logo is on top of other nav elements */
+  position: absolute; 
+  left: 50%;
+  transform: translateX(-50%); 
+  margin-right: 0;
+  z-index: 101;
 }
 
 .logo img {
@@ -414,8 +431,8 @@ img {
 
 .rainbox-sides {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -1219,34 +1236,42 @@ img {
 @media (max-width: 1024px) {
     
     /* 1. Navigation Container */
+    /* Switch grid → flex */
     .nav-section {
-        justify-content: space-between; /* Keep Logo Left/Center and Hamburger Right */
-        padding: 0 20px;
+      max-width: none;      /* important */
+      width: 100%;
+      margin: 8px 0;        /* remove side gaps */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 25px;
+      position: relative;
+      border-radius: 26px 26px; /* optional: tighter feel */
+      padding: 0 16px; /* mobile-safe padding */
     }
 
     /* 2. Logo Positioning */
-    .logo {
-        position: static;
-        transform: none;
-        margin: 0;
-        z-index: 20;
+    .nav-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     /* 3. Hamburger Menu Icon */
     .hamburger {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        cursor: pointer;
-        z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 2000;
     }
 
     .hamburger .bar {
-        width: 28px;
-        height: 3px;
-        background-color: #3a5a40;
-        border-radius: 4px;
-        transition: 0.3s ease;
+      width: 28px;
+      height: 3px;
+      background-color: #3a5a40;
+      border-radius: 4px;
+      transition: 0.3s ease;
     }
 
     /* Hamburger Animation */
@@ -1256,49 +1281,46 @@ img {
 
     /* 4. The Dropdown Menu (Hidden by default) */
     .nav-menu {
-        position: absolute;
-        top: 100%; /* Push it right below the nav bar */
-        left: 0;
-        width: 100%;
-        background-color: #f9f4e4; 
-        background-image: url("../img/pattern-3.2.svg");
-        border: 2px solid #3a5a40;
-        border-top: none; 
-        border-radius: 0 0 26px 26px; 
-        
-        /* Flexbox for vertical layout */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 30px 0;
-        
-        /* Animation: Clip Path Hiding */
-        clip-path: circle(0% at 100% 0%); 
-        -webkit-clip-path: circle(0% at 100% 0%);
-        transition: clip-path 0.5s ease-in-out;
-        pointer-events: none; /* Can't click when hidden */
-        z-index: 1500;
+      color: #f9f4e4; /* Light text color for contrast on dark background */
+      font-size: 1.5rem;
+      text-decoration: none;
+      text-align: center;
+      display: flex; /* Override display: none from desktop style */
+      position: absolute; /* Position relative to .nav-section */
+      top: 90px; /* 80px (nav height) + 10px (space) = 90px */
+      left: 0;
+      width: 100%;
+      max-height: calc(100vh - 90px); /* Ensures menu doesn't overflow viewport */
+      overflow-y: auto; 
+      background-color: #3a5a40; /* Choose a contrasting background color */
+      flex-direction: column;
+      align-items: center; /* Center the links */
+      padding: 20px 25px;
+      box-sizing: border-box;
+      transform: translateY(-20px);
+      transition: transform 0.3s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1000;
+      /* Remove border-radius on sides to look flush with viewport */
+      border-radius: 0; 
     }
 
-    .hamburger, 
-    .nav-menu {
-      display: none !important; /* Use !important to override any defaults */
-    }
-
-    /* Show Menu when Active */
+    /* SHOW MENU WHEN ACTIVE */
     .nav-menu.active {
-        clip-path: circle(150% at 100% 0%); 
-        pointer-events: all;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
-    /* Make sure the buttons INSIDE the menu are visible */
+    .hamburger {
+      display: flex;
+    }
+
+    /* Hide desktop nav groups */
     .nav-buttons-left,
     .nav-buttons-right {
-      display: flex; 
-      align-items: center;
-      gap: 14px;
-      z-index: 100;
+      display: none;
     }
     
     .insta-btn-nav, .whats-btn-nav, .nav-button {
@@ -1311,14 +1333,33 @@ img {
         height: 50px; 
         width: 90px;
     }
+
+    /* Remove button styling/background for clean links */
+    .nav-menu .nav-button {
+      background: none;
+      border: none;
+      color: inherit;
+      font-size: inherit;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .nav-menu .insta-btn-nav,
+    .nav-menu .whats-btn-nav {
+      background: none; /* Remove desktop button backgrounds */
+      border: none;
+      color: inherit;
+      font-weight: bold;
+    }
     
     /* General Tablet Adjustments */
+
     .banner {
-        height: auto;
-        padding-top: 100px;
-        padding-bottom: 50px;
-        overflow: hidden;
+      height: auto;
+      padding-top: 30px;
+      padding-bottom: 40px;
     }
+    
     .plate { width: 80%; top: 100px; }
 }
 
@@ -1327,7 +1368,7 @@ img {
     /* Adjust Banner and Content for smaller screens */
     .banner {
         height: auto;
-        padding-top: 40px;
+        padding-top: 20px;
     }
 
     .banner-img {
@@ -1336,18 +1377,18 @@ img {
         height: 600px;
     }
     
-    .logo-banner { width: 100%; max-width: 600px; height: auto; }
+    .logo-banner { width: 90%; max-width: 400px; height: auto; }
     
     .plate {
-        width: 110%;
+        width: 120%;
         max-width: 900px;
         height: auto;
-        top: 170px;
+        top: 410px;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .adesivo { right: 10px; top: -10px; width: 60px; height: 60px; }
+    .adesivo { right: 10px; top: 155px; width: 60px; height: 60px; }
 
     .rainbow-sides__left {
       width: 12em;
