@@ -187,6 +187,7 @@ img {
 
 /* --- Navigation Bar (Desktop Default) --- */
 .nav-section {
+  width: 100%;
   max-width: 1200px; /* Max size for default screen */
   height: 80px;
   background-color: #f9f4e4;
@@ -201,7 +202,8 @@ img {
   /* Updated margin: Increased top margin (25px) for space after ticker, 
      'auto' for center alignment (creates equal side spacing), 
      and 15px bottom margin for separation from main content. */
-  margin: 15px 5px;
+  margin: 25px auto 15px;
+  box-sizing: border-box;
   position: relative;
   z-index: 100; 
 }
@@ -370,7 +372,7 @@ img {
     position: relative;
     width: 600px;
     height: 300px;
-    z-index: 1;
+    z-index: 5;
 }
 
 .adesivo {
@@ -429,9 +431,8 @@ img {
     will-change: stroke-dashoffset;
 }
 
-.rainbox-sides {
+.rainbox-left {
   position: absolute;
-  top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -439,19 +440,23 @@ img {
   z-index: -1;
 }
 
-.rainbow-sides__left {
+.rainbow-side__left {
   width: 20.0625em;
   position: absolute;
-  bottom: 21.28em;
+  bottom: 0px;
   left: -2.75em;
   transform: scale(-1);
 }
 
-.rainbow-sides__right {
-  width: 20.0625em;
-  position: absolute;
+.rainbow-side__right {
+  position: fixed;
   top: 0;
   right: -4.75em;
+
+  width: 20.0625em;
+
+  pointer-events: none;
+  z-index: 0; /* behind content, above background */
 }
 
 .pattern-decor {
@@ -1240,11 +1245,11 @@ img {
     .nav-section {
       max-width: none;      /* important */
       width: 100%;
-      margin: 8px 0;        /* remove side gaps */
+      margin: 8px 20px;        /* remove side gaps */
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0px 25px;
+      padding: 0px 16px;
       position: relative;
       border-radius: 26px 26px; /* optional: tighter feel */
       padding: 0 16px; /* mobile-safe padding */
@@ -1367,44 +1372,74 @@ img {
 @media (max-width: 768px) {
     /* Adjust Banner and Content for smaller screens */
     .banner {
-        height: auto;
-        padding-top: 20px;
+        height: auto;        /* Allow height to adjust to content */
+        min-height: 400px;   /* Minimum height for mobile */
+        padding-top: 50px;   /* Give it some breathing room */
+        position: relative;  /* Ensure absolute children position relative to this */
+        overflow: hidden;    /* Prevents horizontal scrolling if sticker pokes out */
     }
 
     .banner-img {
         width: 100%;
         max-width: 800px;
         height: 600px;
+        top: -120px;
     }
     
-    .logo-banner { width: 90%; max-width: 400px; height: auto; }
+    .logo-banner {
+        width: 80%;          /* Make logo responsive (80% of screen width) */
+        max-width: 350px;    /* Cap width so it doesn't get too big */
+        height: auto;        /* Maintain aspect ratio */
+        /* The z-index is already 5, so it stays on top */
+    }
     
     .plate {
-        width: 120%;
-        max-width: 900px;
+        width: 110%;
+        max-width: 800px;
         height: auto;
-        top: 410px;
+        top: 399px;
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .adesivo { right: 10px; top: 155px; width: 60px; height: 60px; }
-
-    .rainbow-sides__left {
-      width: 12em;
+    .adesivo {
       position: absolute;
-      bottom: 21.28em;
-      left: 0px;
+      top: 150px;
+      right: 55px;
+
+      transform: translate(35%, -35%); /* pulls it outside + behind */
+      width: 60px;
+      height: 60px;
+
+      /* PINS THE STICKER TO THE CORNER OF THE 80% WIDTH LOGO */
+      /* Since the logo takes up 80%, there is 10% empty space on the right. */
+      /* We position the sticker at that 10% line, then pull it back slightly. */
+      right: 10%; 
+      margin-right: -25px; /* Pulls sticker partially outside the logo edge */
+
+      z-index: 1;
+      animation: spin 15s linear infinite;
+    }
+
+
+    .rainbow-side__left {
+      width: 14em;
+      position: absolute;
+      bottom: 0;
+      left: -2.75em;
       transform: scale(-1);
-
     }
 
-    .rainbow-sides__right {
-      width: 12em;
-      position: absolute;
+
+    .rainbow-side__right {
+      position: fixed;
       top: 0;
-      right: 0px;
+      right: -2.75em;
+      width: 13em;
+      pointer-events: none;
+      z-index: 0; /* behind content, above background */
     }
+
 
     /* Titles */
     .flavors h2 { font-size: 3rem; line-height: 1.1; padding: 0 10px; }
