@@ -1,3 +1,7 @@
+/* ========================================= */
+/* 1. FONT DEFINITIONS                       */
+/* ========================================= */
+
 @font-face {    
     font-family: "Westroon";
     src: url(../fonts/01_WESTROON/Westroon.woff2) format("woff2"),
@@ -7,10 +11,28 @@
     font-display: swap;
 }
 
+@font-face {    
+    font-family: "Neue-Kabel-Medium";
+    src: url(../fonts/01_WESTROON/Neue-Kabel-Medium.woff2) format("woff2"),
+         url(../fonts/01_WESTROON/Neue-Kabel-Medium.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 @font-face {
-    font-family: "neato-serif-regular";
-    src: url(../fonts/04_NEATO-SERIF/neato-serif-regular.woff2) format("woff2"),
-         url(../fonts/04_NEATO-SERIF/neato-serif-regular.otf) format("opentype");
+    font-family: "Neue-Kabel-Extrabold";
+    src: url(../fonts/04_NEATO-SERIF/Neue-Kabel-Extrabold.woff2) format("woff2"),
+         url(../fonts/04_NEATO-SERIF/Neue-Kabel-Extrabold.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fendesert-Sans-Regular";
+    src: url(../fonts/03_FENDESERT/Fendesert-Sans-Regular.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Sans-Regular.otf) format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -26,6 +48,33 @@
 }
 
 @font-face {
+    font-family: "Fendesert-Sans-Stamp";
+    src: url(../fonts/03_FENDESERT/Fendesert-Sans-Stamp.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Sans-Stamp.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fendesert-Script-Regular";
+    src: url(../fonts/03_FENDESERT/Fendesert-Script-Regular.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Script-Regular.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fendesert-Script-Rough";
+    src: url(../fonts/03_FENDESERT/Fendesert-Script-Rough.woff2) format("woff2"),
+         url(../fonts/03_FENDESERT/Fendesert-Script-Rough.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: "Fendesert-Script-Stamp";
     src: url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.woff2) format("woff2"),
          url(../fonts/03_FENDESERT/Fendesert-Script-Stamp.otf) format("opentype");
@@ -34,210 +83,244 @@
     font-display: swap;
 }
 
-/* ------------------------------- */
-/* ABOUT BANNER WRAPPER */
-/* ------------------------------- */
+@font-face {
+    font-family: "neato-serif-regular";
+    src: url(../fonts/5_AXR-OUTRUNNER/neato-serif-regular.woff2) format("woff2"),
+         url(../fonts/5_AXR-OUTRUNNER/neato-serif-regular.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "AXR-Outrunner";
+    src: url(../fonts/5_AXR-OUTRUNNER/AXR-Outrunner.woff2) format("woff2"),
+         url(../fonts/5_AXR-OUTRUNNER/AXR-Outrunner.otf) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Westfield – Color Palette */
+
+    --color-thicket: #3A5A40;   /* Thicket – Dark green base */
+    --color-vanilla: #E7E0C6;   /* Vanilla – Soft cream */
+    --color-meadow: #70876A;    /* Meadow – Muted green */
+    --color-amber: #FE6F1F;     /* Amber – Accent orange */
+    --color-brooke: #6BC4A6;    /* Brooke – Fresh teal */
+    --color-cloud: #F9F4E4;     /* Cloud – Light background */
+}
+
+
 /* Basic Reset and Font (Using a generic bold serif/slab-serif for visual approximation) */
-body {
+* {
+    box-sizing: border-box; 
     margin: 0;
     padding: 0;
     font-family: 'Westroon', 'neato-serif-regular', 'Fendesert-Sans-Rough'; /* Fallback fonts */
 }
 
-/* --- Section Container --- */
-.about-box {  
-    padding: 30px; 
-    position: relative; 
-    z-index: 0; 
-    /* Ensure no overflow clips the rainbow if it extends down */
-    overflow: visible; 
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-brooke);
+  background-size: contain;
+  background-repeat: repeat;
 }
 
-/* --- Black Header Box (The Main Visual Focus) --- */
-.header-box {
-    background-color: #3A5A40; 
-    padding: 50px 50px; 
-    border-radius: 3rem;
-    margin-bottom: 20px;
+.poster-container {
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--color-vanilla);
+    overflow: hidden;
     position: relative;
-    z-index: 10; /* Highest Priority */
     display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center (optional) */
-} 
+    flex-direction: column; 
+    overflow: hidden; /* optional: ensures the rainbow doesn't bleed out */
+    z-index: 0;
 
-.header-box img {
-  width: auto;
-  height: 20rem; 
+    padding-bottom: 60px;
+    overflow: hidden; /* Ensures the curve doesn't overflow horizontally */
 }
 
-/* Punctuation Style Adjustment (Emulating the square bracket comma from the image) */
-/* This is a visual trick and might require a custom font for a perfect match, 
-   but this selects and attempts to style the commas. */
-.header-box h1 br + br + br::before {
-    content: ','; /* Adds a comma before the last line break */
-    display: none; /* Hide for this CSS example */
-}
-
-/* --- Red Content Box (Two Columns) --- */
-.content-box {
-    display: flex;
-    justify-content: space-between; 
-    align-items: stretch; /* Stretch cards to match height if needed */
+/* Content Wrapper - This pulls the text ABOVE the rainbow */
+.content-wrapper {
     position: relative;
-    z-index: 5; /* Layer 3: Above Rainbow */
-    min-height: 300px;
-    padding: 20px 0;
+    z-index: 2; /* Higher than rainbow (1) */
 }
 
-.text-card {
-    background-color: #F9F4E4;
-    padding: 50px;
-    border-radius: 20px; /* Optional: Softens the look */
-    flex: 0 1 48%; /* Split width roughly 50/50 */
-    box-sizing: border-box;
-    /* Optional: Slight shadow to pop off the red/rainbow */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+#essencia_da_empresa {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 40px auto;
+    fill: currentColor;
 }
 
-.body-text {
-    font-family: "Westroon";
-    color: #1a1a1a;
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: 500;
-    margin: 0;
+.about-title-text {
+  fill: var(--color-thicket);
 }
 
-.body-card p {
-    max-width: 720px;      /* limita largura para leitura confortável */
-    line-height: 1.6;      /* espaço entre linhas */
-    font-size: 1.2rem;
-    color: #3A5A40;
+.about-title-shadow {
+  fill: rgb(255, 255, 255);
 }
 
-.results-key {
-    font-family: "neato-serif-regular";
-    font-size: 2.2rem;
-    line-height: 1.1;
-    font-weight: 900;
-    text-transform: uppercase;
+
+
+/* --- TOP SECTION (TEAL) --- */
+.top-section {
+    background-color: var(--color-brooke);
+    padding: 60px 40px 130px 40px; /* Extra bottom padding for the curve */
+    position: relative;
+    /* Creating the curved bottom edge */
+    border-bottom-left-radius: 50% 40px;
+    border-bottom-right-radius: 50% 40px;
+}
+
+/* The Main Header: "Construção da Identidade" */
+header h1 {
+    font-family: "Fendesert-Sans-Rough";
+    font-size: 4rem;
+    line-height: 0.9;
     text-align: center;
-    margin: 0;
-}
-
-.results-key span {
-    color: #3A5A40;
-    display: block; /* Forces them to sit on their own lines */
-  }
-
-.results-key .line-1 {
-    margin-bottom: 20px; /* Adjust this number to increase/decrease space */
-}
-
-.results-card {
-  position: relative;   /* important! enables absolute positioning inside */
-  overflow: hidden;     /* optional: prevents icon from sticking out */
-}
-
-.results-card span {
-  position: relative;   /* ensures text is above the icon */
-  z-index: 2;          /* higher z-index to stay above the icon */
-}
-
-.card-decor {
-  position: absolute;
-  bottom: 5px;   /* distance from bottom */
-  left: 10px;    /* distance from right */
-  width: 320px;    /* size of icon */
-  pointer-events: none; /* icon doesn't block clicks */
-  z-index: 1;
-}
-
-
-.text-block {
-    /* The white background for high contrast */
-    background-color: #F9F4E4; 
-    /* Padding is applied here to create the white box around the text */
-    padding: 60px 50px; 
-    flex: 0 1 48%; /* Use slightly less than 50% to ensure space between columns */
-    height: 100%; /* Ensure both blocks fill the height if align-items: stretch was used */
-    box-sizing: border-box;
-}
-
-/* For smaller screens, stack the elements */
-@media (max-width: 900px) {
-    .content-box {
-        flex-direction: column;
-        gap: 30px; /* Space between the stacked elements */
-    }
-}
-
-.content-box .body-text {
-    flex: 0 1 45%; /* Allows it to grow a little, max width around 45% */
-    color: #000000;
-    font-size: 1.2rem;
-    line-height: 1.4;
-    font-weight: 500;
-    margin: 0;
-}
-
-.icon-paragraph {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.para-icon {
-  width: 2rem;
-  margin-top: 4px;
-  opacity: .9;
-}
-
-.spin-icon {
-  width: 32px;
-  animation: spin 10s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* --- Right Text Column (Key Results Headline) --- */
-.content-box .results-key {
-    flex: 0 1 45%; /* Allows it to grow a little, max width around 45% */
-    color: #000000; /* Dark text on red background */
-    font-size: 2.2rem;
-    line-height: 1.1; /* Tight line height */
-    font-weight: 900; /* Extra bold */
+    color: var(--color-thicket);
+    font-weight: 600;
     text-transform: uppercase;
-    text-align: right; /* Text aligned to the right */
-    margin: 0;
+    margin-bottom: 50px;
+    
+    /* Creating the cream outline effect around the text */
+    text-shadow: 
+      6px 6px 0px var(--color-cloud), 
+      -1px -1px 0 var(--color-cloud),  
+      1px -1px 0 var(--color-cloud),
+      -1px 1px 0 var(--color-cloud),
+      1px 1px 0 var(--color-cloud);
 }
 
-/* Mobile Stack */
-@media (max-width: 900px) {
-    .content-box {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .text-card {
-        flex: 1 1 auto;
-        width: 100%;
-    }
-    .results-key {
-        text-align: left;
-    }
+/* Text Content */
+.content-text {
+    color: var(--color-thicket);
+    position: relative;
+
+    font-weight: 500;
+    line-height: 1.6;    /* Adds space between lines */
+    font-size: 1.1rem;   /* Makes the text slightly easier to read */
+    text-align: left;    /* Standard left-align is usually more readable than justified for web */
+    
+    width: 90%;          /* Gives some "breathing room" on small screens */
+    max-width: 800px;    /* The magic number: prevents text from getting too wide */
+    margin: 0 auto;      /* Centers the container horizontally */
+    position: relative;
+
+    z-index: 3;
+}
+
+.content-text p {
+    margin-bottom: 20px;
+}
+
+/* Watermark Circle Decoration (Right side) */
+.watermark {
+    position: absolute;
+    top: 10%;
+    right: -80px;
+    width: 300px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5; /* Very faint */
+    pointer-events: none;
+    z-index: 1;
+    font-family: 'Alfa Slab One', cursive;
+    text-align: center;
+    transform: rotate(15deg);
+}
+/* Simulating the watermark content purely with CSS text for now */
+.watermark::after {
+    content: "WESTFIELD COOKIES";
+    font-size: 2rem;
+    color: var(--color-thicket);
+}
+
+.poster-divider-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* This ensures it sits exactly between the two colors */
+    background-color: transparent; 
+    margin: -20px 0; /* Optional: Use negative margin to overlap the sections slightly */
+    top: -80px;
+    left: -150px;
+    z-index: 1000;
+}
+
+.poster-divider-image img {
+    max-width: 180px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* --- BOTTOM SECTION (CREAM) --- */
+.bottom-section {
+    position: relative;
+    background-color: var(--color-vanilla);
+
+    text-align: center;
+    margin-top: -100px; /* Pull up to meet the curve */
+    /*padding-top: 60px;*/
+    border-top-left-radius: 50% 40px;
+    border-top-right-radius: 50% 40px;
+    z-index: 2;
+}
+
+/* Layout for the Mascot area: Date - Image - Text */
+.mascot-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+/* The Mascot Image Container */
+.mascot-img-container {
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.mascot-img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 500px) {
+    header h1 { font-size: 2.5rem; }
+    .mascot-row { flex-direction: column; gap: 5px; }
+    .top-section { padding: 40px 20px 80px 20px; }
 }
 
 /* ------------------------------- */
 /* RAINBOW DIVIDER SECTION */
 /* ------------------------------- */
+/* The Rainbow - Absolute so it ignores the section flow */
+.rainbow-container {
+    position: absolute;
+    width: 50%;
+    height: 4000px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    pointer-events: none; /* User can still highlight text underneath */
+    z-index: 2;
+}
+
 .rainbow {
     /* Position relative to .about-box */
     position: absolute;
@@ -246,23 +329,16 @@ body {
     left: 50%;
     transform: translateX(-50%);
     
-    width: 100%;
-    max-width: 300px;
-    height: 101%; /* Fill the remaining height */
-    
     /* Layer 2: Above Red Bg (0), Below Content (5) */
-    z-index: -10; 
+    z-index: 5;
     
-    perspective: 1500px; 
-    display: flex;
+    perspective: 7000px; 
     justify-content: center;
     pointer-events: none; /* Let clicks pass through to background */
 }
 
 /* The vertical rainbow SVG */
 .rainbox-vertical__svg {
-    width: 50%; 
-    height: 150%;
     position: absolute;
     transform-origin: top;
     transform: rotateX(50deg) translateY(-100px); 
@@ -273,6 +349,18 @@ body {
     
     backface-visibility: hidden; /* Fixes blur */
     will-change: transform;
+}
+
+.rainbow, .rainbow-container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* 4. Elevate the content so it sits ON TOP of the rainbow */
+.poster-divider-image {
+    position: relative;
+    z-index: 3; /* Higher than the rainbow's z-index (1) */
 }
 
 /* Animation: drop, tilt forward, appear in front */
@@ -299,7 +387,7 @@ body {
 .stroke-anim {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: rainbowDraw 1.1s ease-out forwards;
+  animation: rainbowDraw 6s ease-out forwards;
 }
 @keyframes rainbowDraw {
   to { stroke-dashoffset: 0; }
@@ -361,8 +449,254 @@ body {
   animation-delay: .48s;
 }
 
+/* ========================================= */
+/* MISSION BOX / WEB DEVS SECTION            */
+/* ========================================= */
 
+.mission-box {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    color: #FFFFFF;
 
+    border: var(--color-cloud) 2px solid;
+    border-radius: 50px;
+    
+    /* CRITICAL: This keeps the absolute photos inside this box */
+    position: relative; 
+    overflow: visible;
 
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px; /* Gives it height so photos fit */
+}
 
+.mission-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
+  border-radius: 50px;
+
+  background-color: var(--color-thicket);
+  background-image: url("../../img/lines-texture.svg");
+  background-repeat: repeat;
+
+  mix-blend-mode: overlay;   /* optional but 🔥 */
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Content Container (Sits on top of photos) */
+.main-container {
+    position: relative;
+    z-index: 10; 
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Orange Banner */
+.orange-banner {
+    background-color: var(--color-amber); /* Matches your brand orange */
+    box-shadow: 4px 4px 0px rgba(0,0,0,1); /* Hard shadow for retro feel */
+    margin-bottom: 0;
+    display: inline-block; /* Wraps tight around text */
+    width: 100%;
+    transform: rotate(-2deg); /* slight tilt like the style */
+
+    display: inline-block; /* Makes the box wrap tightly around the text content */
+    width: auto;           /* Overrides any previous width: 100% */
+    padding: 5px 20px;
+}
+
+/* The "SIMPLE. FRESH. HONEST." Text */
+.banner-title-bold {
+    font-family: 'Fendesert-Sans-Stamp', sans-serif; /* Using your bold font */
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-cloud);
+    margin: 5px 0 0 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* White Text Block */
+.white-text-block {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    color: var(--color-cloud); /* Your dark green text */
+    font-family: 'Fendesert-Sans-Rough', sans-serif;
+    font-size: 1.4em;
+    line-height: 1.4;
+    transform: rotate(1deg); /* Counter tilt */
+    margin-top: -5px;
+
+    text-shadow: 
+      -1px -1px 0 var(--color-thicket), 
+      1px -1px 0 var(--color-thicket),
+      -1px 1px 0 var(--color-thicket),
+      1px 1px 0 var(--color-thicket);
+}
+
+/* Photo Grid Logic */
+.photo-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+}
+
+/* Polaroid Frame Style */
+.photo-tile {
+    width: 130px; /* Slightly wider for the frame */
+    height: auto; /* Allow height to be determined by content/padding */
+    background-color: var(--color-vanilla); /* Classic white polaroid frame */
+    padding: 10px 10px 30px 10px; /* Top, Right, Bottom (the "chin"), Left */
+    border-radius: 2px; /* Polaroids have very sharp corners */
+    position: absolute;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Softer shadow for realism */
+    border: none; /* Removing the previous solid border */
+    overflow: hidden;
+}
+
+.photo-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../../img/paper-texture.svg");
+  background-repeat: repeat;
+
+  mix-blend-mode: overlay;   /* optional but 🔥 */
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.photo-tile img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Keeps the photo a perfect square inside the frame */
+    object-fit: cover;
+    display: block;
+    border: 1px solid rgba(0,0,0,0.1); /* Subtle inner border around the photo */
+}
+
+/* Updated positioning to account for the new height */
+.tile-1 { top: 10%; left: 5%; transform: rotate(-7deg); } 
+.tile-2 { top: 35%; left: 2%; transform: rotate(-25deg); }
+.tile-3 { bottom: 8%; left: 7%; transform: rotate(-3deg); }
+
+.tile-4 { top: 12%; right: 4%; transform: rotate(6deg); } 
+.tile-5 { top: 42%; right: 3%; transform: rotate(-4deg); }
+.tile-6 { bottom: 10%; right: 6%; transform: rotate(0deg); }
+
+/* --- Desktop Positioning (Default) --- */
+.photo-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+}
+
+/* Left Side Tiles */
+.tile-1 { top: 10%; left: 5%; transform: rotate(-7deg); } 
+.tile-2 { top: 40%; left: 2%; transform: rotate(5deg); }
+.tile-3 { bottom: 10%; left: 7%; transform: rotate(-3deg); }
+
+/* Right Side Tiles */
+.tile-4 { top: 12%; right: 5%; transform: rotate(6deg); } 
+.tile-5 { top: 45%; right: 3%; transform: rotate(-4deg); }
+.tile-6 { bottom: 8%; right: 7%; transform: rotate(2deg); }
+
+/* --- Mobile Positioning (Screens smaller than 900px) --- */
+@media (max-width: 600px) {
+
+  .mission-box {
+    padding-top: 100px;    /* Make room for top tiles */
+    padding-bottom: 110px; /* Make room for bottom tiles */
+    min-height: auto;
+  }
+
+  .banner-title-bold {
+    font-size: 1.5rem;
+  }
+
+  /* Top Row Tiles */
+  .tile-1 { top: -10px; left: 10%; transform: rotate(-5deg); }
+  .tile-2 { top: -10px; left: 40%; transform: rotate(3deg); }
+  .tile-3 { bottom: 360px; left: 70%; transform: rotate(-8deg); }
+
+  /* Bottom Row Tiles (Re-using tiles 4, 5, 6) */
+  .tile-4 { bottom: -20px; left: 10%; top: auto; right: auto; transform: rotate(4deg); }
+  .tile-5 { bottom: -15px; left: 40%; top: auto; right: auto; transform: rotate(-6deg); }
+  .tile-6 { bottom: -30px; left: 67%; top: auto; right: auto; transform: rotate(5deg); }
+
+  /* Scale down the tiles slightly for mobile */
+  .photo-tile {
+    width: 130px;
+    padding-bottom: 25px;
+  }
+
+  .mascot-img-container {
+    width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-box {
+    height: 450px;
+  }
+
+  .orange-banner {
+    position: relative;
+    top: 30px;
+  }
+
+  .banner-title-bold {
+    font-size: 1.3rem;
+  }
+
+  .white-text-block {
+    width: 100%;    /* Use percentage so it fits any mobile screen */
+  }
+
+  /* Top Row Tiles */
+  .tile-1 { top: -10px; left: 10%; transform: rotate(-5deg); }
+  .tile-2 { top: -10px; left: 40%; transform: rotate(3deg); }
+  .tile-3 { bottom: 350px; left: 65%; transform: rotate(-8deg); }
+
+  /* Bottom Row Tiles (Re-using tiles 4, 5, 6) */
+  .tile-4 { bottom: -20px; left: 10%; top: auto; right: auto; transform: rotate(4deg); }
+  .tile-5 { bottom: -15px; left: 40%; top: auto; right: auto; transform: rotate(-6deg); }
+  .tile-6 { bottom: -30px; left: 67%; top: auto; right: auto; transform: rotate(5deg); }
+
+  /* Scale down the tiles slightly for mobile */
+  .photo-tile {
+    width: 100px;
+    padding-bottom: 25px;
+  }
+
+  .poster-divider-image {
+    visibility: hidden;
+  }
+
+  .rainbow-container {
+    height: 2500px;
+  }
+
+  .mascot-img-container {
+    width: 350px;
+  }
+}

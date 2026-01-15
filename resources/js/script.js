@@ -1,3 +1,4 @@
+// Ticker Track
 const track = document.getElementById("tickerTrack");
 
 const phrases = [
@@ -7,225 +8,211 @@ const phrases = [
   `<img src="resources/img/logo-2.5.svg" class="ticker-icon" alt="Ealgle Logo">`
 ];
 
-function fillTicker() {
-  track.innerHTML = ""; // clean
+// FIX: Wrap Ticker logic in a check to ensure 'track' exists before using it.
+if (track) {
+    function fillTicker() {
+      // Check again inside the function just in case
+      if (!track) return; 
 
-  // Build one full cycle
-  let cycle = "";
-  phrases.forEach(item => {
-    cycle += `<span>${item}</span>`;
-  });
+      track.innerHTML = ""; // clean
 
-  // Duplicate cycles until track is wide enough
-  while (track.scrollWidth < window.innerWidth * 2) {
-    track.innerHTML += cycle;
-  }
+      // Build one full cycle
+      let cycle = "";
+      phrases.forEach(item => {
+        cycle += `<span>${item}</span>`;
+      });
+
+      // Duplicate cycles until track is wide enough
+      while (track.scrollWidth < window.innerWidth * 2) {
+        track.innerHTML += cycle;
+      }
+    }
+
+    fillTicker();
+    window.addEventListener("resize", fillTicker);
 }
 
-fillTicker();
-window.addEventListener("resize", fillTicker);
 
-// Hamburger Menu Logic
+
+
+// All remaining DOM manipulation logic should be inside DOMContentLoaded.
 document.addEventListener("DOMContentLoaded", () => {
+    
+    /* ---------------------------------- */
+    /* 1. HAMBURGER MENU LOGIC (FIXED)    */
+    /* ---------------------------------- */
     const hamburger = document.getElementById("hamburger-btn");
     const navMenu = document.getElementById("nav-menu");
 
-    hamburger.addEventListener("click", () => {
-        // Toggle the active class on both the button (for animation) and the menu
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-    });
+    // FIX: Only add event listeners if both elements exist
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            // Toggle the active class on both the button (for animation) and the menu
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
 
-    // Close menu when a link is clicked
-    document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-    }));
-});
-
-
-// Array of words to display one by one
-const words = ["Chewy", "Crunchy", "Delicious"];
-let currentWord = 0;
-let currentLetter = 0;
-
-const typingSpeed = 150; // Speed of typing in milliseconds
-const pauseBetweenWords = 1000; // Pause between words in milliseconds
-
-function showText() {
-    const output = document.getElementById("output");
-    const word = words[currentWord];
-
-    // Adding one letter at a time
-    if (currentLetter < word.length) {
-        output.textContent += word[currentLetter];
-        currentLetter++;
-        setTimeout(showText, typingSpeed); // Adjust typing speed here
-    } else {
-    // Move to next word
-    setTimeout(() => {
-        output.textContent = "";
-        currentLetter = 0;
-        currentWord++;
-    // Loop back to first word
-        if (currentWord >= words.length) {
-            currentWord = 0;
-        }
-
-        showText();
-    }, pauseBetweenWords);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", showText);
-
-// Logo Circle Anaimation
-document.addEventListener("DOMContentLoaded", () => {
-  const imgCircle = document.querySelector(".img-circle");
-  const footer = document.querySelector("footer"); // <-- your footer element
-
-  function handleScroll() {
-    const footerTop = footer.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    // If footer is visible (touching or entering the screen)
-    if (footerTop <= windowHeight) {
-      imgCircle.classList.remove("visible");   // hide animation
-    } else {
-      imgCircle.classList.add("visible");      // show animation
+        // Close menu when a link is clicked
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
     }
-  }
 
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // run on page load too
-});
+    /* ---------------------------------- */
+    /* 2. LOGO CIRCLE ANIMATION (ROBUST)  */
+    /* ---------------------------------- */
+    const imgCircle = document.querySelector(".img-circle");
+    const footer = document.querySelector("footer");
+
+    // FIX: Only run if both elements exist
+    if (imgCircle && footer) {
+      function handleScroll() {
+        const footerTop = footer.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        // If footer is visible (touching or entering the screen)
+        if (footerTop <= windowHeight) {
+          imgCircle.classList.remove("visible");   // hide animation
+        } else {
+          imgCircle.classList.add("visible");      // show animation
+        }
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // run on page load too
+    }
 
 
-// Cookie on hover swap
-document.addEventListener("DOMContentLoaded", () => {
-  const catalogItems = document.querySelectorAll(".catalog-item");
+    /* ---------------------------------- */
+    /* 3. COOKIE ON HOVER SWAP (USER CODE) */
+    /* ---------------------------------- */
+    const catalogItems = document.querySelectorAll(".catalog-item");
 
-  catalogItems.forEach(item => {
-    const cookie = item.querySelector(".cookie-img-swap"); // the image inside
+    catalogItems.forEach(item => {
+      const cookie = item.querySelector(".cookie-img-swap");
 
-    if (!cookie) return; // skip if no cookie image
+      if (!cookie) return; // skip if no cookie image
 
-    const originalSrc = cookie.getAttribute("src");
-    const hoverSrc = cookie.getAttribute("data-hover");
+      const originalSrc = cookie.getAttribute("src");
+      const hoverSrc = cookie.getAttribute("data-hover");
 
-    // Hover on the whole catalog-item
-    item.addEventListener("mouseenter", () => {
-      cookie.setAttribute("src", hoverSrc);
+      item.addEventListener("mouseenter", () => {
+        cookie.setAttribute("src", hoverSrc);
+      });
+
+      item.addEventListener("mouseleave", () => {
+        cookie.setAttribute("src", originalSrc);
+      });
     });
 
-    item.addEventListener("mouseleave", () => {
-      cookie.setAttribute("src", originalSrc);
-    });
-  });
-});
-
-// Rainbow Stroke Animation on Scroll
-document.addEventListener("DOMContentLoaded", () => {
-
+    /* ---------------------------------- */
+    /* 4. RAINBOW STROKE ANIMATION (ROBUST) */
+    /* ---------------------------------- */
     const strokes = document.querySelectorAll(".rainbow-stroke, .black-stroke");
-
-    /* CHANGE THIS VALUE TO CONTROL SPEED
-       600 means: "By the time I scroll down 600px, the lines will be gone."
-       Lower number = Faster animation / Disappears sooner
-       Higher number = Slower animation
-    */
     const animationDistance = 600; 
 
-    // Wait until initial CSS draw animation ends (2.4s)
-    setTimeout(() => {
+    if (strokes.length > 0) {
+      // Wait until initial CSS draw animation ends (2.4s)
+      setTimeout(() => {
 
-        strokes.forEach(path => {
-            path.style.animation = 'none'; // Stop CSS control
-            void path.offsetHeight; // Force update
-            
-            const length = path.getTotalLength();
-            path.style.strokeDasharray = length;
-            path.style.strokeDashoffset = 0;
-            path.dataset.length = length;
-        });
+          strokes.forEach(path => {
+              // Ensure path has necessary methods before calling
+              if (typeof path.getTotalLength === 'function') {
+                path.style.animation = 'none';
+                void path.offsetHeight;
+                
+                const length = path.getTotalLength();
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = 0;
+                path.dataset.length = length;
+              }
+          });
 
-        window.addEventListener("scroll", () => {
-            const scrollY = window.scrollY;
-            
-            // Math: Current Scroll divided by our Fixed Distance (600px)
-            // If scroll is 300px, progress is 0.5 (50% erased)
-            const progress = Math.min(scrollY / animationDistance, 1);
+          window.addEventListener("scroll", () => {
+              const scrollY = window.scrollY;
+              const progress = Math.min(scrollY / animationDistance, 1);
 
-            strokes.forEach(path => {
-                const length = path.dataset.length;
-                path.style.strokeDashoffset = length * progress;
-            });
-        });
+              strokes.forEach(path => {
+                  const length = path.dataset.length;
+                  if (length) { // Check if dataset.length was set
+                      path.style.strokeDashoffset = length * progress;
+                  }
+              });
+          });
 
-    }, 2500);
-});
-
-// Rainbow Stroke Animation on Scroll (sequential disappear)
-document.addEventListener("DOMContentLoaded", () => {
-
+      }, 2500);
+    }
+    
+    
+    /* ---------------------------------- */
+    /* 5. RAINBOW STROKE ANIMATION (Sequential - ROBUST) */
+    /* ---------------------------------- */
     const blacks  = [...document.querySelectorAll(".black-stroke")];
     const colors  = [...document.querySelectorAll(".rainbow-stroke")];
 
-    // Pair black+color vertically:
-    const pairs = blacks.map((b, i) => ({
-        black: b,
-        color: colors[i],
-    }));
+    // FIX: Check if we have matching pairs before proceeding
+    if (blacks.length > 0 && blacks.length === colors.length) {
+        // Pair black+color vertically:
+        const pairs = blacks.map((b, i) => ({
+            black: b,
+            color: colors[i],
+        }));
 
-    /* How far the user needs to scroll for the WHOLE rainbow to disappear */
-    const totalScroll = 660; 
+        const totalScroll = 660; 
+        const segment = totalScroll / pairs.length;
 
-    /* Delay between each stripe disappearing */
-    const segment = totalScroll / pairs.length;
+        // ---- Wait until the CSS drawing animation ends ----
+        setTimeout(() => {
 
-    // ---- Wait until the CSS drawing animation ends ----
-    setTimeout(() => {
+            // Measure all lengths
+            pairs.forEach(pair => {
+                if (typeof pair.black.getTotalLength === 'function' && typeof pair.color.getTotalLength === 'function') {
+                  
+                    const lenBlack = pair.black.getTotalLength();
+                    const lenColor = pair.color.getTotalLength();
 
-        // Measure all lengths
-        pairs.forEach(pair => {
-            const lenBlack = pair.black.getTotalLength();
-            const lenColor = pair.color.getTotalLength();
+                    pair.black.style.strokeDasharray = lenBlack;
+                    pair.black.style.strokeDashoffset = 0;
+                    pair.black.dataset.length = lenBlack;
 
-            pair.black.style.strokeDasharray = lenBlack;
-            pair.black.style.strokeDashoffset = 0;
-            pair.black.dataset.length = lenBlack;
+                    pair.color.style.strokeDasharray = lenColor;
+                    pair.color.style.strokeDashoffset = 0;
+                    pair.color.dataset.length = lenColor;
 
-            pair.color.style.strokeDasharray = lenColor;
-            pair.color.style.strokeDashoffset = 0;
-            pair.color.dataset.length = lenColor;
-
-            // Stop CSS animation
-            pair.black.style.animation = "none";
-            pair.color.style.animation = "none";
-        });
-
-        // ---- Scroll handling ----
-        window.addEventListener("scroll", () => {
-            const scrollY = window.scrollY;
-
-            pairs.forEach((pair, index) => {
-                // Determine how much of THIS stripe should be erased
-                const start = index * segment;
-                const end   = start + segment;
-
-                let progress = (scrollY - start) / (end - start);
-                progress = Math.min(Math.max(progress, 0), 1); // clamp 0–1
-
-                // Apply erase
-                const blackLength = pair.black.dataset.length;
-                const colorLength = pair.color.dataset.length;
-
-                pair.black.style.strokeDashoffset = blackLength * progress;
-                pair.color.style.strokeDashoffset = colorLength * progress;
+                    // Stop CSS animation
+                    pair.black.style.animation = "none";
+                    pair.color.style.animation = "none";
+                }
             });
-        });
 
-    }, 2500); // matches your CSS draw time
+            // ---- Scroll handling ----
+            window.addEventListener("scroll", () => {
+                const scrollY = window.scrollY;
 
+                pairs.forEach((pair, index) => {
+                    if (!pair.black.dataset.length) return; // Skip if initial length not set
+
+                    const start = index * segment;
+                    const end   = start + segment;
+
+                    let progress = (scrollY - start) / (end - start);
+                    progress = Math.min(Math.max(progress, 0), 1); // clamp 0–1
+
+                    // Apply erase
+                    const blackLength = pair.black.dataset.length;
+                    const colorLength = pair.color.dataset.length;
+
+                    pair.black.style.strokeDashoffset = blackLength * progress;
+                    pair.color.style.strokeDashoffset = colorLength * progress;
+                });
+            });
+
+        }, 2500); // matches your CSS draw time
+    }
 });
 
+// The following function is not used but kept for completeness
+function showText() {
+    const output = document.getElementById("output");
+}
