@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             color: colors[i],
         }));
 
-        const totalScroll = 660; 
+        const totalScroll = 360; 
         const segment = totalScroll / pairs.length;
 
         // ---- Wait until the CSS drawing animation ends ----
@@ -216,3 +216,43 @@ document.addEventListener("DOMContentLoaded", () => {
 function showText() {
     const output = document.getElementById("output");
 }
+
+// .c-btn-magnetic
+const btn = document.querySelector('.c-btn-magnetic');
+const fill = document.querySelector('.c-btn-magnetic__fill');
+
+btn.addEventListener('mouseenter', (e) => {
+    // Get mouse position relative to the button
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Set the position of the fill element
+    fill.style.left = `${x}px`;
+    fill.style.top = `${y}px`;
+
+    // Expand the fill to cover the button (using a large enough value)
+    // 300% is usually safe to cover corners
+    fill.style.width = '300%';
+    fill.style.height = '300%';
+    
+    // Randomize color to match the video vibe (optional)
+    const colors = ['#FE6F1F', '#6BC4A6', '#70876A'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    fill.style.backgroundColor = randomColor;
+});
+
+btn.addEventListener('mouseleave', (e) => {
+    // Get mouse position relative to the button
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Move the fill to the exit point
+    fill.style.left = `${x}px`;
+    fill.style.top = `${y}px`;
+
+    // Shrink the fill back to 0
+    fill.style.width = '0';
+    fill.style.height = '0';
+});
